@@ -1,0 +1,5 @@
+git clone https://github.com/matheusmendes12454321/ace-acs-system.git
+cd ace-acs-system
+composer install
+php artisan key:generate
+php artisan serve
