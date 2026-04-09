@@ -1,0 +1,13 @@
+cd ~/acs_ace-
+
+# 1. Adicionar todos os arquivos
+git add .
+
+# 2. Fazer o commit com uma mensagem (NÃO DEIXE VAZIO!)
+git commit -m "Sistema ACS/ACE completo - Versão final com todas as funcionalidades"
+
+# 3. Se ainda der erro, use este comando:
+git commit -m "Sistema ACS/ACE v1.0"
+
+# 4. Enviar para o GitHub
+git push origin main
