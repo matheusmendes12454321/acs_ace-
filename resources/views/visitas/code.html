@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d7dadc",
+                    "surface-bright": "#f7fafc",
+                    "secondary-container": "#8feefc",
+                    "on-secondary-fixed": "#001f23",
+                    "inverse-primary": "#9acbff",
+                    "error-container": "#ffdad6",
+                    "surface-variant": "#e0e3e5",
+                    "surface": "#f7fafc",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-background": "#181c1e",
+                    "tertiary": "#004a10",
+                    "surface-container-low": "#f1f4f6",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface-container-high": "#e5e9eb",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed": "#001d34",
+                    "on-primary-fixed-variant": "#004a79",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#a6d0ff",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#414750",
+                    "on-surface": "#181c1e",
+                    "on-secondary-container": "#006d77",
+                    "surface-container-highest": "#e0e3e5",
+                    "background": "#f7fafc",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#ebeef0",
+                    "primary-container": "#005a92",
+                    "primary": "#00426d",
+                    "tertiary-container": "#006519",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#92f1fe",
+                    "tertiary-fixed-dim": "#7ddc7a",
+                    "primary-fixed": "#cfe4ff",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-tint": "#15629a",
+                    "secondary": "#006972",
+                    "outline": "#717881",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "on-tertiary-fixed": "#002204",
+                    "tertiary-fixed": "#98f994",
+                    "outline-variant": "#c1c7d1",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-container": "#82e17f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex flex-col p-4 space-y-2 h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 dark:bg-slate-950 font-manrope text-sm z-40">
+<div class="flex items-center gap-3 px-2 py-4 mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-xl font-extrabold text-sky-900 dark:text-white leading-tight">Saúde Conecta</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Gestão Pública</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-sky-100 dark:bg-sky-900/40 text-sky-900 dark:text-sky-100 font-semibold rounded-lg transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home_health</span>
+                Visitas
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">groups</span>
+                Pacientes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">map</span>
+                Mapa
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Configurações
+            </a>
+</nav>
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mb-4">
+<span class="material-symbols-outlined text-sm">add</span>
+                Nova Visita
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+                Suporte
+            </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-0 lg:ml-64 bg-surface min-h-screen">
+<!-- Header / TopAppBar -->
+<header class="flex justify-between items-center px-8 h-20 w-full sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl transition-all">
+<div class="flex flex-col">
+<h2 class="text-2xl font-extrabold text-sky-900 dark:text-sky-100 tracking-tight font-headline">Visitas Domiciliares</h2>
+<p class="text-on-surface-variant text-sm font-medium">Quarta-feira, 24 de Outubro</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full w-80 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Buscar por família ou endereço..." type="text"/>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border-2 border-white shadow-sm overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="professional portrait of a medical administrator in a clean office environment with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQbAQy4q9BsNIjqYgFQO43Zp5UXtgUmH6evNv95_HnaAFW_9XKNRYsuouy0UwaDoqFHqt1f5jsm2ZwjgucZc7Y6bYwZ-6BQDkYrguUZDV9cMWVyNYbPARkkvtbBWacpgdAWZtRT6YhRm9qBwC5nnLBmI5qycQBLZVCWFgKJsJYFCuZnjVpTz4jCCJ7wJ99mHy_K6bVNCxjIC5mTXguWdM7MGVK-CGnAi2mfk86-WwY4TbEMk3FKH3OcV2jsFKq7mPX8txDxvGT4w"/>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Filters & Actions Area -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-low p-2 rounded-3xl">
+<div class="flex p-1 bg-surface-container-lowest rounded-2xl shadow-sm">
+<button class="px-6 py-2 bg-primary text-white rounded-xl text-sm font-semibold shadow-sm transition-all">Todas</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-sm font-medium transition-all">Pendente</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-sm font-medium transition-all">Concluída</button>
+<button class="px-6 py-2 text-on-surface-variant hover:bg-surface-container-high rounded-xl text-sm font-medium transition-all">Remarcada</button>
+</div>
+<div class="flex items-center gap-3 px-4">
+<span class="text-xs font-bold text-outline uppercase tracking-wider">Ordenar:</span>
+<div class="flex items-center gap-1 cursor-pointer hover:text-primary transition-colors">
+<span class="text-sm font-semibold text-on-surface">Prioridade</span>
+<span class="material-symbols-outlined text-base">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Visit List (Bento Grid Inspired) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- Active Item / Priority Card -->
+<div class="xl:col-span-8 space-y-6">
+<!-- Visit Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl group hover:shadow-xl hover:shadow-primary/5 transition-all relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container text-[10px] font-bold uppercase tracking-widest">Alta Prioridade</span>
+</div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/30 flex flex-col items-center justify-center text-secondary shrink-0">
+<span class="text-sm font-bold">08:30</span>
+<span class="text-[10px] font-bold uppercase">AM</span>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1 font-headline">Família Silva Oliveira</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                        Rua das Palmeiras, 452 - Bloco B, Apto 12
+                                    </div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-sm">pregnant_woman</span>
+                                        Gestante (32 sem)
+                                    </span>
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-sm">elderly</span>
+                                        Idoso Acamado
+                                    </span>
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-sm">vaccines</span>
+                                        Vacina Pendente
+                                    </span>
+</div>
+</div>
+<div class="flex md:flex-col justify-end gap-2">
+<button class="p-3 rounded-2xl bg-primary text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="p-3 rounded-2xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Visit Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl group hover:shadow-xl hover:shadow-primary/5 transition-all relative">
+<div class="absolute top-0 right-0 p-4">
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">Normal</span>
+</div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-16 h-16 rounded-2xl bg-surface-container flex flex-col items-center justify-center text-outline shrink-0">
+<span class="text-sm font-bold">10:15</span>
+<span class="text-[10px] font-bold uppercase">AM</span>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1 font-headline">Residência Santos</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                        Av. Central, 1020 - Casa 04
+                                    </div>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-sm">child_care</span>
+                                        Recém-nascido
+                                    </span>
+<span class="flex items-center gap-1.5 px-3 py-1 bg-surface-container text-on-surface-variant rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-sm">monitoring</span>
+                                        Pós-operatório
+                                    </span>
+</div>
+</div>
+<div class="flex md:flex-col justify-end gap-2">
+<button class="p-3 rounded-2xl bg-primary text-white hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">map</span>
+</button>
+<button class="p-3 rounded-2xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Visit Card 3 (Completed state) -->
+<div class="bg-surface-container-lowest/50 p-6 rounded-3xl group transition-all opacity-70">
+<div class="absolute top-0 right-0 p-4">
+<span class="px-3 py-1 rounded-full bg-secondary-container/40 text-on-secondary-container text-[10px] font-bold uppercase tracking-widest">Concluída</span>
+</div>
+<div class="flex flex-col md:flex-row gap-6">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/20 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1 space-y-4">
+<div>
+<h3 class="text-xl font-bold text-on-surface mb-1 font-headline">Família Barbosa</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-base">location_on</span>
+                                        Rua Sergipe, 88
+                                    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Content / Stats & Map Preview -->
+<div class="xl:col-span-4 space-y-6">
+<!-- Progress Card -->
+<div class="bg-gradient-to-br from-primary to-primary-container p-6 rounded-3xl text-white shadow-xl shadow-primary/20">
+<h4 class="font-bold text-lg mb-4 font-headline">Resumo do Dia</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm opacity-90 font-medium">Progresso das Visitas</span>
+<span class="text-2xl font-black">40%</span>
+</div>
+<div class="w-full bg-white/20 h-3 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[40%] rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="bg-white/10 p-3 rounded-2xl backdrop-blur-md">
+<span class="block text-xs opacity-70 font-bold uppercase">Realizadas</span>
+<span class="text-xl font-bold">04</span>
+</div>
+<div class="bg-white/10 p-3 rounded-2xl backdrop-blur-md">
+<span class="block text-xs opacity-70 font-bold uppercase">Pendentes</span>
+<span class="text-xl font-bold">06</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Map Preview Card -->
+<div class="bg-surface-container-lowest p-2 rounded-3xl space-y-3">
+<div class="w-full h-48 rounded-2xl overflow-hidden grayscale contrast-125 brightness-105">
+<img alt="Map View" class="w-full h-full object-cover" data-alt="clean minimal city map visualization with cyan route highlighting and subtle points of interest markers" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClyaqCs97cyPjcbDdulWigPfJPJxVxPVA44OBvGEyBNp0BN3UthCduC0Gi_O-W6Zt2aGsBd7PBpM9WzzLG81IRxbGNUiv23xYzsyVMMbkiWvrxJwH-5gUC0Dcw5fcfqUexkkdiMp3AW4LUa5i58HiY81vUmprxi_EZwacVyH0EP-EpcZll3EtYl6-MKZQqJkghusELFRSIja8heV9-lqVcHh59MThEfpI55a5fP0NGrNIQNRogs5GmPLFwfAaRd-cmIbbiabIbbQ"/>
+</div>
+<div class="p-3">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-bold text-on-surface font-headline">Rota Otimizada</h4>
+<span class="text-xs text-primary font-bold px-2 py-1 bg-primary/10 rounded-lg">12.4 km total</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+                                A próxima visita está a 8 minutos (1.2km) de distância da sua localização atual.
+                            </p>
+<button class="w-full mt-4 py-3 bg-surface-container-high text-on-surface font-bold text-sm rounded-xl hover:bg-surface-container-highest transition-colors">
+                                Abrir Navegação
+                            </button>
+</div>
+</div>
+<!-- Recent Updates -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl">
+<h4 class="font-bold text-on-surface mb-4 font-headline">Observações Recentes</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<div class="w-1.5 h-12 bg-secondary rounded-full"></div>
+<div>
+<p class="text-xs font-bold text-on-surface mb-1">Família Pereira</p>
+<p class="text-xs text-on-surface-variant line-clamp-2 italic">"Paciente relatou melhora após ajuste na medicação para hipertensão..."</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="w-1.5 h-12 bg-primary-fixed-dim rounded-full"></div>
+<div>
+<p class="text-xs font-bold text-on-surface mb-1">Dona Maria Rita</p>
+<p class="text-xs text-on-surface-variant line-clamp-2 italic">"Necessário agendar retorno com nutricionista para próxima semana..."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation (Shared Component) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white dark:bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-slate-100 dark:border-slate-800">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 font-inter text-[10px] font-semibold uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">home</span>
+            Início
+        </a>
+<a class="flex flex-col items-center justify-center bg-sky-100 dark:bg-sky-900/50 text-sky-800 dark:text-sky-200 rounded-2xl px-5 py-2 font-inter text-[10px] font-semibold uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-2xl mb-1" style="font-variation-settings: 'FILL' 1;">assignment</span>
+            Visitas
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 font-inter text-[10px] font-semibold uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">event_note</span>
+            Agenda
+        </a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 font-inter text-[10px] font-semibold uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-2xl mb-1">person</span>
+            Perfil
+        </a>
+</nav>
+</body></html>

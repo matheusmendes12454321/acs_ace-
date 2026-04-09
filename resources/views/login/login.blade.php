@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-BR">
-<head>
+
+<html class="light" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Login | ACS/ACE Portal</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -76,41 +77,42 @@
         },
       }
     </script>
-<style>
-.material-symbols-outlined {
+<style>.material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
-}
+    }
 .glass-effect {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(24px)
-}
+    }
 .bg-medical-texture {
     background-image: linear-gradient(rgba(247, 250, 252, 0.92), rgba(247, 250, 252, 0.85)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCI6yktgPbajUQ5i62jFjdihY5aNjVuKvJsGyKqpJV8RDQzMgj9e0zFjOwchjOv65UY4iRrO9hHmlvlxTcY2mvIYaZwts5WLkwHXbkCceWAHxf6IMY4Cgc4H7qsOTlF2_nHPPChKHiEWEklAJsUZhcP5JSMKGtrYRpWwILnbRzWhSKMGgIoY7XTBnEgN8_AlITSyjKEJo4y66e3c6-rVZteEUSvXy8TYxO8GZ5CRUY-ycF4h73kzDL-AlprLszUd4AOpcI3vqozQA);
     background-size: cover;
     background-position: center
-}
-</style>
+    }</style>
 </head>
-<body class="bg-medical-texture min-h-screen flex flex-col font-body text-on-surface">
-<header class="bg-white/80 backdrop-blur-md shadow-sm flex justify-between items-center px-6 py-4 w-full fixed top-0 z-50">
+<body class="bg-medical-texture min-h-screen flex flex-col font-body text-on-surface" data-alt="close-up of a smiling healthcare worker in a community clinic with soft sunlight through the window and stethoscope in background">
+<!-- Header / Branding Navigation Shell (Suppressed Nav, Only Branding) -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4 w-full fixed top-0 z-50">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
-<span class="font-manrope font-bold text-lg tracking-tight text-blue-800">ACS/ACE Portal</span>
+<span class="font-manrope font-bold text-lg tracking-tight text-blue-800 dark:text-blue-300">ACS/ACE Portal</span>
 </div>
 <div class="hidden md:flex gap-4 items-center">
-<span class="text-xs font-label uppercase tracking-widest text-slate-500">Sistema de Gestão de Saúde</span>
+<span class="text-xs font-label uppercase tracking-widest text-slate-500">Clinical Sanctuary</span>
 </div>
 </header>
 <main class="flex-grow flex items-center justify-center p-6 mt-16">
-<div class="w-full max-w-[1100px] grid md:grid-cols-2 bg-white rounded-xl overflow-hidden shadow-2xl">
+<!-- Login Container -->
+<div class="w-full max-w-[1100px] grid md:grid-cols-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl">
+<!-- Left Side: Narrative/Visual -->
 <div class="hidden md:flex flex-col justify-between p-12 bg-primary relative overflow-hidden">
 <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-secondary-container via-transparent to-transparent"></div>
 <div class="relative z-10">
-<h1 class="font-headline text-4xl font-extrabold text-white leading-tight tracking-tight">
+<h1 class="font-headline text-display-lg text-white font-extrabold leading-tight tracking-tight">
                         Cuidado que <br/>transforma vidas.
                     </h1>
-<p class="mt-6 text-white text-lg max-w-sm opacity-90">
-                        Bem-vindo ao Portal do Agente Comunitário de Saúde e Agente de Combate às Endemias.
+<p class="mt-6 text-on-primary-container font-body text-lg max-w-sm opacity-90">
+                        Bem-vindo ao Portal do Agente Comunitário de Saúde e Agente de Combate às Endemias. Acesse suas ferramentas de trabalho.
                     </p>
 </div>
 <div class="relative z-10 flex items-center gap-4">
@@ -118,45 +120,49 @@
 <span class="material-symbols-outlined text-on-secondary-container">shield_with_heart</span>
 </div>
 <div class="text-white">
-<p class="font-bold text-sm">SUS Digital</p>
+<p class="font-bold text-sm">Vitalis Nexus</p>
 <p class="text-xs opacity-70">Sistema de Gestão de Saúde Comunitária</p>
 </div>
 </div>
 </div>
+<!-- Right Side: Login Form -->
 <div class="p-8 md:p-16 flex flex-col justify-center bg-white">
 <div class="mb-10">
 <h2 class="font-headline text-3xl font-bold text-primary mb-2">Entrar</h2>
 <p class="text-on-surface-variant">Acesse sua conta para gerenciar visitas e dados epidemiológicos.</p>
 </div>
-<form id="loginForm" class="space-y-6">
+<form class="space-y-6">
+<!-- Email Field -->
 <div class="space-y-2">
 <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-semibold" for="email">E-mail Institucional</label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">mail</span>
-<input class="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="email" name="email" placeholder="admin@gmail.com" type="email"/>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low rounded-lg border-none focus:ring-0 transition-all placeholder:text-outline/60 border-b-2 border-transparent focus:border-primary" id="email" name="email" placeholder="nome@saude.gov.br" type="email"/>
 </div>
 </div>
+<!-- CPF Field -->
 <div class="space-y-2">
 <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-semibold" for="cpf">CPF</label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">badge</span>
-<input class="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="cpf" name="cpf" placeholder="000.000.000-00" type="text"/>
+<input class="w-full pl-10 pr-4 py-3 bg-surface-container-low rounded-lg border-none focus:ring-0 transition-all placeholder:text-outline/60 border-b-2 border-transparent focus:border-primary" id="cpf" name="cpf" placeholder="000.000.000-00" type="text"/>
 </div>
-</div>
+</div><!-- User Type Field -->
 <div class="space-y-2">
 <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-semibold" for="user_type">Tipo de Usuário</label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">group</span>
-<select class="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none" id="user_type" name="user_type">
-<option disabled selected value="">Selecione seu perfil</option>
+<select class="w-full pl-10 pr-4 py-3 bg-surface-container-low rounded-lg border-none focus:ring-0 transition-all appearance-none border-b-2 border-transparent focus:border-primary text-on-surface-variant" id="user_type" name="user_type">
+<option disabled="" selected="" value="">Selecione seu perfil</option>
 <option value="administrador">Administrador</option>
 <option value="acs">ACS (Agente Comunitário de Saúde)</option>
 <option value="ace">ACE (Agente de Combate às Endemias)</option>
 <option value="supervisor">Supervisor</option>
 </select>
-<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none group-focus-within:text-primary transition-colors">expand_more</span>
 </div>
 </div>
+<!-- Password Field -->
 <div class="space-y-2">
 <div class="flex justify-between items-center">
 <label class="block text-xs font-label uppercase tracking-widest text-on-surface-variant font-semibold" for="password">Senha</label>
@@ -164,75 +170,46 @@
 </div>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">lock</span>
-<input class="w-full pl-10 pr-12 py-3 bg-gray-50 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="password" name="password" placeholder="••••••••" type="password"/>
+<input class="w-full pl-10 pr-12 py-3 bg-surface-container-low rounded-lg border-none focus:ring-0 transition-all placeholder:text-outline/60 border-b-2 border-transparent focus:border-primary" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
 </div>
 </div>
+<!-- Remember Me -->
 <div class="flex items-center">
-<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" id="remember" type="checkbox"/>
 <label class="ml-3 text-sm text-on-surface-variant font-medium" for="remember">Lembrar de mim neste dispositivo</label>
 </div>
+<!-- Login Button -->
 <button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold text-lg rounded-xl shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group" type="submit">
                         Entrar
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
 </button>
 </form>
-<div class="mt-12 pt-8 border-t border-gray-100 flex flex-col items-center gap-4">
+<!-- Footer Note -->
+<div class="mt-12 pt-8 border-t border-surface-container-high flex flex-col items-center gap-4">
 <p class="text-xs text-on-surface-variant text-center leading-relaxed max-w-[280px]">
                         Problemas com o acesso? Entre em contato com o suporte da sua Secretaria de Saúde.
                     </p>
 <div class="flex gap-4">
-<span class="px-3 py-1 bg-gray-100 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant rounded-full">v4.2.0</span>
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-widest text-on-surface-variant rounded-full">v4.2.0</span>
 <span class="px-3 py-1 bg-secondary-container/30 text-[10px] font-bold uppercase tracking-widest text-secondary rounded-full">Encrypted</span>
 </div>
 </div>
 </div>
 </div>
 </main>
-<footer class="bg-slate-50 flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full border-t border-slate-100">
+<!-- Footer Shared Component -->
+<footer class="bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full border-t border-slate-100 dark:border-slate-800">
 <div class="mb-6 md:mb-0">
-<span class="font-inter text-xs uppercase tracking-widest text-slate-400">© 2024 ACS/ACE Portal. All rights reserved.</span>
+<span class="font-inter text-xs uppercase tracking-widest text-slate-400">© 2024 Clinical Sanctuary. All rights reserved.</span>
 </div>
 <div class="flex flex-wrap justify-center gap-8">
-<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all" href="#">Privacy Policy</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all" href="#">Terms of Service</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all" href="#">Institutional Portal</a>
-<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all" href="#">Help Desk</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all opacity-80 hover:opacity-100" href="#">Institutional Portal</a>
+<a class="font-inter text-xs uppercase tracking-widest text-slate-400 hover:underline decoration-blue-500 transition-all opacity-80 hover:opacity-100" href="#">Help Desk</a>
 </div>
 </footer>
-<script>
-        // Usuários padrão para teste
-        if (!localStorage.getItem('usuarios')) {
-            localStorage.setItem('usuarios', JSON.stringify([
-                { id: 1, nome: 'Administrador', email: 'admin@gmail.com', cpf: '000.000.000-00', senha: 'admin123', funcao: 'administrador' },
-                { id: 2, nome: 'Supervisor', email: 'supervisor@gmail.com', cpf: '111.111.111-11', senha: 'super123', funcao: 'supervisor' },
-                { id: 3, nome: 'João Silva - ACS', email: 'acs@gmail.com', cpf: '123.456.789-00', senha: 'acs123', funcao: 'acs' },
-                { id: 4, nome: 'Maria Santos - ACE', email: 'ace@gmail.com', cpf: '123.456.789-01', senha: 'ace123', funcao: 'ace' }
-            ]));
-        }
-        
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('password').value;
-            const userType = document.getElementById('user_type').value;
-            
-            const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-            const user = usuarios.find(u => u.email === email && u.senha === senha);
-            
-            if (user && user.funcao === userType) {
-                localStorage.setItem('usuario', JSON.stringify(user));
-                // Redirecionar baseado no tipo de usuário
-                if (user.funcao === 'administrador') {
-                    window.location.href = '/admin_dashboard';
-                } else if (user.funcao === 'supervisor') {
-                    window.location.href = '/dashboard_geral_admin';
-                } else {
-                    window.location.href = '/visitas';
-                }
-            } else {
-                alert('Email, senha ou tipo de usuário incorretos!\n\nCredenciais:\nAdmin: admin@gmail.com / admin123\nSupervisor: supervisor@gmail.com / super123\nACS: acs@gmail.com / acs123\nACE: ace@gmail.com / ace123');
-            }
-        });
-    </script>
-</body>
-</html>
+</body></html>

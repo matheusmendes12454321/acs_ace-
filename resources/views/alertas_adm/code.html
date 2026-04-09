@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Central de Alertas - Saúde Conecta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e5e9eb",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d7dadc",
+                    "secondary": "#006972",
+                    "surface-bright": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary-fixed": "#001f23",
+                    "on-primary-fixed-variant": "#004a79",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#181c1e",
+                    "primary-container": "#005a92",
+                    "error": "#ba1a1a",
+                    "primary": "#00426d",
+                    "inverse-primary": "#9acbff",
+                    "secondary-fixed": "#92f1fe",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#a6d0ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-background": "#181c1e",
+                    "primary-fixed": "#cfe4ff",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface": "#f7fafc",
+                    "tertiary-container": "#006519",
+                    "secondary-container": "#8feefc",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#002204",
+                    "background": "#f7fafc",
+                    "tertiary-fixed": "#98f994",
+                    "on-surface-variant": "#414750",
+                    "on-primary-fixed": "#001d34",
+                    "tertiary": "#004a10",
+                    "tertiary-fixed-dim": "#7ddc7a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "outline-variant": "#c1c7d1",
+                    "outline": "#717881",
+                    "surface-tint": "#15629a",
+                    "surface-container": "#ebeef0",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "on-tertiary-container": "#82e17f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 z-50 hidden md:flex">
+<div class="p-6">
+<h1 class="text-xl font-bold text-[#005A92] dark:text-blue-400">Saúde Conecta</h1>
+<p class="text-xs font-manrope text-slate-500 uppercase tracking-widest mt-1">Admin Portal</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">groups</span> Team Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">map</span> Micro-area Mapping
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">bug_report</span> Endemic Monitoring
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#005A92] dark:text-blue-400 font-bold border-r-4 border-[#005A92] bg-slate-200/30 font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history_edu</span> Audit Tools
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors font-manrope text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="px-4 py-6 border-t border-slate-200/50">
+<button class="w-full bg-error text-on-error py-3 rounded-xl font-bold flex items-center justify-center gap-2 mb-6">
+<span class="material-symbols-outlined">warning</span> Emergency Alert
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 font-manrope text-sm" href="#"><span class="material-symbols-outlined">help</span> Help Center</a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 font-manrope text-sm" href="#"><span class="material-symbols-outlined">logout</span> Logout</a>
+</div>
+</div>
+</aside>
+<main class="flex-1 md:ml-64 flex flex-col pb-24 md:pb-0">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-6 py-3 sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-[#005A92] md:hidden">Saúde Conecta</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 hover:text-[#005A92] transition-all font-manrope tracking-tight" href="#">Analytics</a>
+<a class="text-slate-500 hover:text-[#005A92] transition-all font-manrope tracking-tight" href="#">Reports</a>
+<a class="text-[#005A92] border-b-2 border-[#005A92] pb-1 font-manrope tracking-tight" href="#">Map View</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-1.5 rounded-full border border-outline-variant/15">
+<span class="material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search alerts..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Supervisor Profile" class="w-full h-full object-cover" data-alt="professional portrait of a female healthcare administrator in a clean office setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXD5ioG5RaayVVUhKxe8sIQFmxgckYjAu1mjeru5nDsG-Jb0gQTvH4tqfN_DmPo9MccfrgyLQg2uI1oJDj1I2EoAZIAFphx3_5tiRKiQpB_FfylTR2mCVD3IAcGrnGu0DbFpxWgyyU_-T9AUof90k0E2lvngLV3_xoA8IEZ3To0Djwr065RjEr5MfVFuM_PMs3LJrq2vMetPF7ipQk2uGInFi1jHUwUh_25shw7dynx9FRtzypXNXi4k9GsLvEoWq2AOQaSCJPcA"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="p-4 md:p-8 space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-xs font-bold text-secondary uppercase tracking-[0.1em] mb-2 block">Painel de Operações</span>
+<h2 class="text-4xl font-extrabold text-on-surface tracking-tight">Central de Alertas</h2>
+</div>
+<div class="flex gap-2">
+<div class="flex bg-surface-container-high p-1 rounded-xl">
+<button class="px-4 py-2 bg-surface-container-lowest rounded-lg shadow-sm text-sm font-bold text-primary">Ativos</button>
+<button class="px-4 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:bg-surface-container-highest/50">Resolvidos</button>
+</div>
+</div>
+</div>
+<!-- Filters Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<button class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl shadow-sm border-b-2 border-primary">
+<div class="flex flex-col items-start">
+<span class="text-xs font-bold text-on-surface-variant opacity-60">Urgência Alta</span>
+<span class="text-2xl font-black text-primary">12</span>
+</div>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</button>
+<button class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl shadow-sm">
+<div class="flex flex-col items-start">
+<span class="text-xs font-bold text-on-surface-variant opacity-60">Casos Suspeitos</span>
+<span class="text-2xl font-black">08</span>
+</div>
+<span class="material-symbols-outlined text-secondary">coronavirus</span>
+</button>
+<button class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl shadow-sm">
+<div class="flex flex-col items-start">
+<span class="text-xs font-bold text-on-surface-variant opacity-60">Falta Medicação</span>
+<span class="text-2xl font-black">05</span>
+</div>
+<span class="material-symbols-outlined text-tertiary">pill</span>
+</button>
+<button class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl shadow-sm">
+<div class="flex flex-col items-start">
+<span class="text-xs font-bold text-on-surface-variant opacity-60">Emergências</span>
+<span class="text-2xl font-black text-error">03</span>
+</div>
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</button>
+</div>
+<!-- Alerts Canvas (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Live Feed Section -->
+<div class="lg:col-span-8 space-y-4">
+<div class="flex items-center justify-between mb-2 px-2">
+<h3 class="font-bold text-lg">Alertas Críticos em Tempo Real</h3>
+<span class="flex items-center gap-2 text-xs font-medium text-secondary bg-secondary-container px-3 py-1 rounded-full">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                    Feed ao vivo
+                        </span>
+</div>
+<!-- Alert Card 1: Critical Emergency -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl transition-all hover:bg-white border-l-[6px] border-error">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">emergency</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Parada Cardiorrespiratória Suspeita</h4>
+<p class="text-xs text-on-surface-variant">Agente: Carlos Silva • Micro-área 04</p>
+</div>
+</div>
+<span class="text-xs font-mono text-on-surface-variant">há 2 min</span>
+</div>
+<p class="text-sm text-on-surface-variant bg-surface-container-low p-3 rounded-xl italic">
+                                    "Paciente idoso, 78 anos, desacordado na residência 452. Família em pânico. Iniciando manobras básicas."
+                                </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-error text-[10px] font-bold text-on-error uppercase tracking-wider">Urgência Máxima</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">ID: #98221</span>
+</div>
+</div>
+<div class="w-full md:w-48 flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-sm">person_add</span> Atribuir Enfermeiro
+                                </button>
+<button class="w-full bg-surface-container-high text-on-surface py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">call</span> Contatar Agente
+                                </button>
+</div>
+</div>
+</div>
+<!-- Alert Card 2: Suspected Case -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl transition-all hover:bg-white border-l-[6px] border-secondary">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">coronavirus</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Suspeita de Arbovirose (Dengue/Zika)</h4>
+<p class="text-xs text-on-surface-variant">Agente: Maria Oliveira • Micro-área 12</p>
+</div>
+</div>
+<span class="text-xs font-mono text-on-surface-variant">há 15 min</span>
+</div>
+<p class="text-sm text-on-surface-variant">
+                                    Gestante relatando febre alta, manchas no corpo e dor retro-orbital há 48 horas. Presença de focos de água parada vizinhos.
+                                </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-secondary text-[10px] font-bold text-on-secondary uppercase tracking-wider">Monitoramento</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">ID: #98218</span>
+</div>
+</div>
+<div class="w-full md:w-48 flex flex-col gap-2">
+<button class="w-full bg-primary-container text-on-primary-container py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">assignment_ind</span> Supervisor ACE
+                                </button>
+<button class="w-full border-2 border-outline-variant/30 text-on-surface-variant py-2 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">check_circle</span> Resolver
+                                </button>
+</div>
+</div>
+</div>
+<!-- Alert Card 3: Medication -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl transition-all hover:bg-white border-l-[6px] border-tertiary">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">pill</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Desabastecimento: Insulina NPH</h4>
+<p class="text-xs text-on-surface-variant">UBS Central • Estoque Crítico</p>
+</div>
+</div>
+<span class="text-xs font-mono text-on-surface-variant">há 45 min</span>
+</div>
+<p class="text-sm text-on-surface-variant">
+                                    Estoque atual: 5 frascos. Média diária: 12 frascos. Pacientes diabéticos tipo 1 em risco de interrupção.
+                                </p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-tertiary text-[10px] font-bold text-on-tertiary uppercase tracking-wider">Insumos</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">ID: #98210</span>
+</div>
+</div>
+<div class="w-full md:w-48 flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">local_shipping</span> Logística
+                                </button>
+<button class="w-full bg-surface-container-high text-on-surface py-2.5 rounded-xl text-sm font-bold">Ver Estoque</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar: Stats & Map Snapshot -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Map Preview -->
+<div class="bg-surface-container-lowest p-2 rounded-3xl overflow-hidden shadow-sm">
+<div class="relative h-48 rounded-2xl overflow-hidden bg-slate-200">
+<img class="w-full h-full object-cover grayscale brightness-110 contrast-125 opacity-70" data-alt="stylized map view of a city grid with heat map overlays in red and blue, medical emergency icons" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQeaq75R58K89xEvs3FI_G61amZWZ1xMhACVwoEZuw9tgC0Y2jrEQhO6nPIwJF1OzFN4Qsikv1JUtIa1uJkcNeBzj0Z2BdPK23yaN9BBqJ3q0GT705uNhCSshZ_BgKah3JM6luJJFH1SumMKszBR27b3ibCKb5Z5XRfJ7D9YxIEB_X9PoHVuVFX2RQSnoTMp9rAh0K_TS4eFoF32fTom5rPVESMoCwFdtGkaTSqo57xMl6DGae1eOKF6b0Pa8if2pyc5SM8ommmQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="relative">
+<div class="absolute -top-4 -left-4 w-8 h-8 bg-error/30 rounded-full animate-ping"></div>
+<span class="material-symbols-outlined text-error text-4xl relative z-10" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-3 left-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-xl flex items-center justify-between">
+<span class="text-[10px] font-bold text-on-surface-variant">FOCO: MICRO-ÁREA 04</span>
+<button class="text-[10px] font-bold text-primary flex items-center">ABRIR MAPA <span class="material-symbols-outlined text-xs">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<!-- Activity History -->
+<div class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm space-y-4">
+<h3 class="font-bold text-sm uppercase tracking-widest text-on-surface-variant opacity-60">Resolvidos Recentemente</h3>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Medicação Entregue</p>
+<p class="text-xs text-on-surface-variant">Paciente: José Alves • Micro-área 02</p>
+<span class="text-[10px] text-tertiary font-bold">Resolvido por Enf. Ana</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Foco de Mosquito Eliminado</p>
+<p class="text-xs text-on-surface-variant">Rua das Flores, 89</p>
+<span class="text-[10px] text-tertiary font-bold">Resolvido por ACE Marcos</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary mt-2"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Acompanhamento Pré-natal</p>
+<p class="text-xs text-on-surface-variant">UBS Santa Marta</p>
+<span class="text-[10px] text-tertiary font-bold">Resolvido por Dr. Roberto</span>
+</div>
+</div>
+</div>
+<button class="w-full py-3 text-sm font-bold text-primary border-t border-surface-container-high mt-2">Ver Histórico Completo</button>
+</div>
+<!-- Quick Analytics -->
+<div class="bg-primary p-6 rounded-3xl shadow-lg shadow-primary/20 text-on-primary overflow-hidden relative">
+<div class="relative z-10 space-y-2">
+<h3 class="text-xs font-bold uppercase tracking-widest opacity-80">Eficiência de Resposta</h3>
+<div class="text-4xl font-black">14<span class="text-xl font-medium opacity-60">min</span></div>
+<p class="text-xs opacity-80">Média de tempo para primeira ação em casos críticos hoje.</p>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-secondary-fixed w-3/4 h-full"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-10">speed</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white dark:bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl">
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[10px] uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-manrope text-[10px] uppercase tracking-wider">Teams</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-manrope text-[10px] uppercase tracking-wider">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-[#005A92] rounded-2xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-manrope text-[10px] uppercase tracking-wider">Alerts</span>
+</a>
+</nav>
+</main>
+</body></html>

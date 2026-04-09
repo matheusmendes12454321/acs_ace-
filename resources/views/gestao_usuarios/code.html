@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Management - Saúde Conecta</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e5e9eb",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#d7dadc",
+                    "secondary": "#006972",
+                    "surface-bright": "#f7fafc",
+                    "surface-container-low": "#f1f4f6",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-secondary-container": "#006d77",
+                    "on-secondary-fixed": "#001f23",
+                    "on-primary-fixed-variant": "#004a79",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#181c1e",
+                    "primary-container": "#005a92",
+                    "error": "#ba1a1a",
+                    "primary": "#00426d",
+                    "inverse-primary": "#9acbff",
+                    "secondary-fixed": "#92f1fe",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#a6d0ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-background": "#181c1e",
+                    "primary-fixed": "#cfe4ff",
+                    "inverse-on-surface": "#eef1f3",
+                    "surface": "#f7fafc",
+                    "tertiary-container": "#006519",
+                    "secondary-container": "#8feefc",
+                    "inverse-surface": "#2d3133",
+                    "on-tertiary-fixed": "#002204",
+                    "background": "#f7fafc",
+                    "tertiary-fixed": "#98f994",
+                    "on-surface-variant": "#414750",
+                    "on-primary-fixed": "#001d34",
+                    "tertiary": "#004a10",
+                    "tertiary-fixed-dim": "#7ddc7a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "outline-variant": "#c1c7d1",
+                    "outline": "#717881",
+                    "surface-tint": "#15629a",
+                    "surface-container": "#ebeef0",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "on-tertiary-container": "#82e17f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e5e9eb; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar (Shared Component JSON Mapping) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 font-manrope text-sm font-medium z-50 hidden md:flex">
+<div class="p-6">
+<span class="text-xl font-bold text-[#005A92] dark:text-blue-400">Saúde Conecta</span>
+<p class="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Admin Portal</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#005A92] dark:text-blue-400 font-bold border-r-4 border-[#005A92] bg-slate-200/30" href="#">
+<span class="material-symbols-outlined">groups</span> Team Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">map</span> Micro-area Mapping
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">bug_report</span> Endemic Monitoring
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">history_edu</span> Audit Tools
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-xl scale-95 active:duration-150" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="p-4 mt-auto">
+<button class="w-full py-3 bg-error text-white font-bold rounded-xl shadow-lg shadow-error/20 flex items-center justify-center gap-2 mb-6">
+<span class="material-symbols-outlined">emergency_home</span> Emergency Alert
+            </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span> Help Center
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 min-h-screen bg-surface">
+<!-- Top Bar (Shared Component JSON Mapping) -->
+<header class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm dark:shadow-none font-manrope tracking-tight">
+<div class="flex items-center gap-8">
+<h1 class="text-lg font-black text-[#005A92]">Saúde Conecta</h1>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-slate-500 hover:text-[#005A92] transition-all" href="#">Analytics</a>
+<a class="text-slate-500 hover:text-[#005A92] transition-all" href="#">Reports</a>
+<a class="text-slate-500 hover:text-[#005A92] transition-all" href="#">Map View</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search resources..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2 text-slate-400 text-sm">search</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Supervisor Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional healthcare administrator in a clean modern clinical setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn01foSK1j1MuGgWPfs9NL4rhhbepNnyRkna5Nh9mZdvns7HXcztqYLE1o8B5nHYpt1zeXq5Yrt-G2-Yq3punq-NORpkzN-oz9QkSiavxB2ro1JqjIOoyoNSrtAi67b1Z45Yu6qXCvANwdgzlMgIwqDYHVexoN2_W5RfQrtA3NiWNQoZfoanzUBIfdYt49KMN4ptPhBeYh4WuoOy_EsLMlyn0xSwvm9fxzQC3UrdDiY0rLYg1CglV3rHtj0F4IJlq5aMQf-fGn4g"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<section class="p-8 max-w-7xl mx-auto">
+<!-- Page Header -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-primary font-bold tracking-widest text-[10px] uppercase block mb-1">Administrative Dashboard</span>
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight">User Management</h2>
+<p class="text-on-surface-variant mt-2 max-w-md">Orchestrate roles, permissions, and access logs for clinical teams across municipal units.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">person_add</span>
+                    Provision New User
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Filters & Search Shell -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[200px]">
+<label class="text-[10px] uppercase font-bold text-on-surface-variant mb-1 block px-1">Quick Search</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-3 pl-10 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Filter by name, ID or email..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-slate-400">search</span>
+</div>
+</div>
+<div class="w-full md:w-auto">
+<label class="text-[10px] uppercase font-bold text-on-surface-variant mb-1 block px-1">Unit</label>
+<select class="w-full bg-surface-container-low border-none rounded-2xl py-3 px-4 text-sm focus:ring-2 focus:ring-primary/20 appearance-none min-w-[180px]">
+<option>All Health Units</option>
+<option>UBS Central</option>
+<option>UBS Vila Nova</option>
+</select>
+</div>
+<div class="w-full md:w-auto">
+<label class="text-[10px] uppercase font-bold text-on-surface-variant mb-1 block px-1">Role Type</label>
+<div class="flex gap-2">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl text-xs font-bold">All</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-xl text-xs font-bold hover:bg-surface-variant transition-colors">ACS</button>
+<button class="bg-surface-container-high text-on-surface-variant px-4 py-2 rounded-xl text-xs font-bold hover:bg-surface-variant transition-colors">ACE</button>
+</div>
+</div>
+</div>
+</div>
+<!-- User List Module -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10">
+<div class="p-6 border-b border-surface-container-low flex justify-between items-center">
+<h3 class="font-headline font-bold text-xl">Clinical Personnel</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold">128 Active Users</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[10px] uppercase text-on-surface-variant font-black tracking-widest bg-surface-container-low/50">
+<th class="px-6 py-4">User Identity</th>
+<th class="px-6 py-4">Role &amp; unit</th>
+<th class="px-6 py-4">Last Activity</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- User 1 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center font-bold text-primary">MS</div>
+<div>
+<p class="font-bold text-sm">Maria Silva</p>
+<p class="text-xs text-on-surface-variant">maria.silva@saude.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-secondary">ACS - Community Agent</span>
+<span class="text-[10px] text-on-surface-variant">UBS Vila Esperança</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-on-surface-variant">14 mins ago</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">edit_square</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined">shield_person</span></button>
+</td>
+</tr>
+<!-- User 2 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center font-bold text-tertiary">RJ</div>
+<div>
+<p class="font-bold text-sm">Ricardo Jorge</p>
+<p class="text-xs text-on-surface-variant">rjorge.adm@saude.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-primary">Supervisor</span>
+<span class="text-[10px] text-on-surface-variant">Regional Distict 4</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-on-surface-variant">Online Now</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">edit_square</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined">shield_person</span></button>
+</td>
+</tr>
+<!-- User 3 -->
+<tr class="group hover:bg-surface-container-low/30 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center font-bold text-secondary">AL</div>
+<div>
+<p class="font-bold text-sm">Ana Lucia</p>
+<p class="text-xs text-on-surface-variant">alucia.nurse@saude.gov</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="text-xs font-bold text-tertiary">Registered Nurse</span>
+<span class="text-[10px] text-on-surface-variant">UBS Central</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs text-on-surface-variant">Yesterday, 18:45</span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">edit_square</span></button>
+<button class="p-2 text-slate-400 hover:text-error transition-colors"><span class="material-symbols-outlined">shield_person</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low/20 flex justify-center border-t border-surface-container-low">
+<button class="text-primary text-xs font-bold hover:underline">View All Personnel Records</button>
+</div>
+</div>
+</div>
+<!-- Right Column: RBAC & Logs -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Permissions Editor Shell -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline font-bold text-lg">Role Blueprint</h3>
+<button class="text-primary-container text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">settings_suggest</span> Manage Roles
+                            </button>
+</div>
+<div class="space-y-4">
+<div class="p-4 rounded-2xl bg-surface-container-low border-l-4 border-primary">
+<p class="text-xs font-bold text-primary mb-2 flex items-center justify-between">
+                                    ACS Level II
+                                    <span class="bg-white px-2 py-0.5 rounded text-[10px] text-on-surface-variant">Current Focus</span>
+</p>
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<span class="text-xs">Patient Mapping (Full)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-green-500 text-sm">check_circle</span>
+<span class="text-xs">Endemic Form Entry</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-300 text-sm">cancel</span>
+<span class="text-xs text-slate-400">Unit-wide Analytics</span>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-surface-container-lowest border border-outline-variant/30 opacity-70">
+<p class="text-xs font-bold text-on-surface mb-2">Registered Nurse</p>
+<div class="flex flex-wrap gap-1">
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-1 rounded-full">Medication Auth</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-2 py-1 rounded-full">Referral Review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Log -->
+<div class="bg-surface-container-lowest rounded-3xl p-6 shadow-sm border border-outline-variant/10">
+<h3 class="font-headline font-bold text-lg mb-6">System Integrity Log</h3>
+<div class="space-y-6 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[1px] before:bg-outline-variant/30">
+<!-- Log Item 1 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">security</span>
+</div>
+<p class="text-xs font-bold">Role Modified</p>
+<p class="text-[10px] text-on-surface-variant mt-1">Admin updated permissions for <span class="text-primary">Nurse Level 1</span>.</p>
+<span class="text-[9px] text-slate-400 font-mono mt-1 block">08:12 AM - July 24</span>
+</div>
+<!-- Log Item 2 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">person_add</span>
+</div>
+<p class="text-xs font-bold">New Onboarding</p>
+<p class="text-[10px] text-on-surface-variant mt-1">4 ACS users provisioned for Sector 12 mapping unit.</p>
+<span class="text-[9px] text-slate-400 font-mono mt-1 block">07:45 AM - July 24</span>
+</div>
+<!-- Log Item 3 -->
+<div class="relative pl-8">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">lock</span>
+</div>
+<p class="text-xs font-bold">Account Locked</p>
+<p class="text-[10px] text-on-surface-variant mt-1">Temporary lockout: user 'j.oliveira' (3 failed attempts).</p>
+<span class="text-[9px] text-slate-400 font-mono mt-1 block">02:10 AM - July 24</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 border border-outline-variant/50 rounded-xl text-xs font-bold hover:bg-surface-container-low transition-all">Download Audit Report</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Spacing for Mobile Nav -->
+<div class="h-24 md:hidden"></div>
+</main>
+<!-- Bottom Nav (Shared Component JSON Mapping) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white dark:bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl font-manrope text-[10px] uppercase tracking-wider">
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-[#005A92] rounded-2xl px-4 py-1">
+<span class="material-symbols-outlined">group</span>
+<span>Teams</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100">
+<span class="material-symbols-outlined">location_on</span>
+<span>Maps</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100">
+<span class="material-symbols-outlined">warning</span>
+<span>Alerts</span>
+</div>
+</nav>
+<!-- Floating Action Button (Suppressed on this page as per guidelines - Detail screen logic, but we keep it contextual if strictly necessary. Guidelines say suppress on Details/Settings, this is a Management/Dashboard hybrid, so we use a subtle trigger) -->
+<!-- Modal: Role Permission Overlay (Conceptual representation) -->
+<div class="fixed inset-0 bg-on-surface/20 backdrop-blur-sm z-[100] flex items-center justify-center p-4 hidden">
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-[2rem] shadow-2xl overflow-hidden">
+<div class="p-8 border-b border-surface-container-low flex justify-between items-center">
+<div>
+<h4 class="text-2xl font-headline font-extrabold tracking-tight">Modify Permissions</h4>
+<p class="text-sm text-on-surface-variant">Update access level for Supervisor role</p>
+</div>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-8 max-h-[614px] overflow-y-auto custom-scrollbar">
+<!-- Modal content would go here -->
+</div>
+<div class="p-6 bg-surface-container-low flex justify-end gap-4">
+<button class="px-6 py-2 font-bold text-on-surface-variant">Cancel</button>
+<button class="px-8 py-2 bg-primary text-on-primary rounded-xl font-bold">Commit Changes</button>
+</div>
+</div>
+</div>
+</body></html>

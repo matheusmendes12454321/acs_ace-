@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saúde Conecta - Central de Alertas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#002204",
+                    "background": "#f7fafc",
+                    "inverse-surface": "#2d3133",
+                    "secondary-container": "#8feefc",
+                    "tertiary-container": "#006519",
+                    "surface": "#f7fafc",
+                    "inverse-on-surface": "#eef1f3",
+                    "primary-fixed": "#cfe4ff",
+                    "on-background": "#181c1e",
+                    "on-tertiary-container": "#82e17f",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "surface-tint": "#15629a",
+                    "surface-container": "#ebeef0",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c1c7d1",
+                    "outline": "#717881",
+                    "tertiary-fixed-dim": "#7ddc7a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "tertiary": "#004a10",
+                    "tertiary-fixed": "#98f994",
+                    "on-surface-variant": "#414750",
+                    "on-primary-fixed": "#001d34",
+                    "primary-fixed-dim": "#9acbff",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "error-container": "#ffdad6",
+                    "surface-container-low": "#f1f4f6",
+                    "surface-bright": "#f7fafc",
+                    "surface-dim": "#d7dadc",
+                    "secondary": "#006972",
+                    "surface-variant": "#e0e3e5",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e5e9eb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#a6d0ff",
+                    "secondary-fixed": "#92f1fe",
+                    "inverse-primary": "#9acbff",
+                    "primary": "#00426d",
+                    "error": "#ba1a1a",
+                    "primary-container": "#005a92",
+                    "on-surface": "#181c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004a79",
+                    "on-secondary-fixed": "#001f23",
+                    "on-secondary-container": "#006d77"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-header { backdrop-filter: blur(24px); }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 border-r border-slate-100 bg-slate-50 flex flex-col p-4 gap-2">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-extrabold text-blue-800 font-headline">Saúde Conecta</h1>
+<p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Portal do Agente</p>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span> Visitas
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Famílias
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span> Histórico
+            </a>
+<!-- Active Tab: Alertas -->
+<a class="flex items-center gap-3 px-3 py-2 bg-white text-blue-700 shadow-sm rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="notification_important">notification_important</span> Alertas
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span> Relatórios
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="sync">sync</span> Sincronização
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Configurações
+            </a>
+</nav>
+<div class="mt-auto border-t border-slate-100 pt-4">
+<button class="w-full flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white py-3 rounded-xl font-semibold shadow-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span> Nova Visita
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 mt-4 text-slate-500 text-sm font-semibold font-headline" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Ajuda
+            </a>
+</div>
+</aside>
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Anchor -->
+<header class="w-full sticky top-0 z-30 glass-header bg-white/80 border-b border-slate-100 flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight text-blue-900 font-headline">Central de Alertas</h2>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-error-container text-on-error-container text-[10px] font-bold rounded-full uppercase tracking-wider">4 Urgentes</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase tracking-wider">12 Avisos</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer p-2 hover:bg-slate-50 rounded-full transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</div>
+<div class="flex items-center gap-3 border-l border-slate-100 pl-6">
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface">Dr. Ricardo Silva</p>
+<p class="text-[10px] font-semibold text-slate-400 uppercase tracking-tighter">Agente de Saúde Comunitária</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover ring-2 ring-slate-100" data-alt="Professional portrait of a male healthcare worker in a clean clinic setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC3DPOHhGRxJbP3KK1I_BrTjmlS0Cv9ZtlYrB79u1taRFlIJN88dFkcG4EVbxLY7ceMvoig3u4NqLFrLPd3C_6zOYiwfVU0UqHFvr1Dy_dX-czxIiol_DxzXVX0OWSYD-XxUDXSoQDCCSi1ljzfz9loEnOnhF6Byvu-0OkTnGhFsRee6O9eUAzzv4KHzQcRlYLqs1f-CZ5XewjRxIGtnH-N6bYuYz8YszwYNcAWYaZatMLO9HHStqGw_AOAwLjHFpTKCq7Mi63MQ"/>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Filter Section - Tonal Layering -->
+<section class="mb-8 flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<button class="px-6 py-2 bg-primary text-white rounded-full text-sm font-semibold shadow-sm whitespace-nowrap">Todos os Alertas</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold whitespace-nowrap">Dengue/Zika (Arboviroses)</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold whitespace-nowrap">Medicação Atrasada</button>
+<button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-sm font-semibold whitespace-nowrap">Gestantes/RN</button>
+<div class="ml-auto flex items-center gap-2 px-4 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-slate-400 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-400 py-2 w-64" placeholder="Filtrar por nome do paciente..." type="text"/>
+</div>
+</section>
+<!-- Alerts Grid - Bento Inspired -->
+<div class="grid grid-cols-12 gap-6">
+<!-- URGENTE: Dengue Case -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl p-6 relative overflow-hidden group border-l-4 border-error">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-error-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-error-container text-3xl" data-icon="warning" data-weight="fill" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-3">
+<h3 class="text-xl font-bold text-on-surface font-headline">Caso Suspeito: Dengue Hemorrágica</h3>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-extrabold rounded uppercase tracking-widest">Urgente</span>
+</div>
+<p class="text-sm text-slate-500 font-medium">Paciente: Maria Eduarda Ferreira • Residência: Bloco B, Ap 302</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-slate-400 uppercase">Há 15 minutos</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 mb-6">
+<p class="text-sm text-on-surface leading-relaxed">
+                            Apresentando sintomas de alerta: dor abdominal intensa, vômitos persistentes e sangramento gengival. Temperatura 39.4°C. Necessário encaminhamento imediato para UPA.
+                        </p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-error text-white rounded-xl text-sm font-bold shadow-md hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="emergency">emergency</span> Acionar Emergência
+                        </button>
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface rounded-xl text-sm font-bold hover:bg-surface-container-highest transition-colors">Visualizar Prontuário</button>
+</div>
+</div>
+<!-- INFO: Weather/Risk Alert -->
+<div class="col-span-12 lg:col-span-4 bg-gradient-to-br from-primary to-primary-container rounded-xl p-6 text-white flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="thunderstorm">thunderstorm</span>
+<h3 class="text-lg font-bold font-headline mb-2">Risco Ambiental Elevado</h3>
+<p class="text-white/80 text-sm leading-relaxed">Chuvas intensas nas últimas 48h. Aumento de 40% no risco de focos de Aedes aegypti no Setor Sul.</p>
+</div>
+<button class="mt-6 w-full py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-sm font-bold transition-colors">Ver Mapa de Calor</button>
+</div>
+<!-- AVISO: Medication Delay -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl p-6 border-l-4 border-secondary">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="pill">pill</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-extrabold rounded uppercase">Aviso</span>
+</div>
+<h4 class="text-base font-bold text-on-surface mb-1">Medicação Atrasada</h4>
+<p class="text-sm text-slate-500 mb-4">João Pedro S. (72 anos)<br/>Hipertensão: Losartana 50mg</p>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-secondary text-white rounded-lg text-xs font-bold">Ligar agora</button>
+<button class="p-2 bg-surface-container-low text-on-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+</button>
+</div>
+</div>
+<!-- AVISO: Zika Prevention -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl p-6 border-l-4 border-secondary">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="pregnant_woman">pregnant_woman</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-extrabold rounded uppercase">Aviso</span>
+</div>
+<h4 class="text-base font-bold text-on-surface mb-1">Prevenção Zika</h4>
+<p class="text-sm text-slate-500 mb-4">4 Gestantes na Rua das Palmeiras sem entrega de repelente este mês.</p>
+<button class="w-full py-2 border-2 border-secondary text-secondary rounded-lg text-xs font-bold hover:bg-secondary/5 transition-colors">Agendar Entrega</button>
+</div>
+<!-- INFORMATIVO: Sync Status -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-xl p-6 border-l-4 border-slate-300">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-slate-400" data-icon="info">info</span>
+<span class="px-2 py-0.5 bg-slate-100 text-slate-500 text-[10px] font-extrabold rounded uppercase">Informativo</span>
+</div>
+<h4 class="text-base font-bold text-on-surface mb-1">Sincronização Concluída</h4>
+<p class="text-sm text-slate-500 mb-4">24 prontuários foram atualizados com a base central da Secretaria de Saúde.</p>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-full h-full bg-green-500"></div>
+</div>
+<p class="text-[10px] text-right mt-2 font-bold text-green-600">100% OK</p>
+</div>
+<!-- URGENTE: Medication Stock Out -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl p-6 border-l-4 border-error flex flex-col md:flex-row items-center gap-6">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-error" data-icon="inventory_2">inventory_2</span>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-extrabold rounded uppercase tracking-wider">Urgente</span>
+</div>
+<h4 class="text-lg font-bold text-on-surface">Estoque Crítico: Insulina NPH</h4>
+<p class="text-sm text-slate-500">Posto de Saúde Central sem estoque para os próximos 3 dias. 12 pacientes ativos dependentes no setor.</p>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-8 py-3 bg-error text-white rounded-xl text-sm font-bold shadow-sm">Remanejar Estoque</button>
+<button class="flex-1 md:flex-none px-8 py-3 bg-surface-container-high text-on-surface rounded-xl text-sm font-bold">Ver Pacientes</button>
+</div>
+</div>
+</div>
+<!-- Contextual Stats Section -->
+<section class="mt-12">
+<h3 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">Panorama de Alertas por Setor</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-center justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-500">Setor Norte</p>
+<h5 class="text-3xl font-extrabold text-on-surface">12 <span class="text-sm font-normal text-slate-400">ativos</span></h5>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-center justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-500">Setor Centro</p>
+<h5 class="text-3xl font-extrabold text-on-surface">04 <span class="text-sm font-normal text-slate-400">ativos</span></h5>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-2xl p-6 flex items-center justify-between">
+<div>
+<p class="text-sm font-semibold text-slate-500">Setor Sul</p>
+<h5 class="text-3xl font-extrabold text-error">21 <span class="text-sm font-normal text-slate-400">ativos</span></h5>
+</div>
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB Suppression: On Desktop Alerts screen, typically we focus on the central grid actions, 
+         but for agent mobility, a contextual "New Observation" might exist. 
+         Suppressing main FAB as per instruction to prioritize Canvas content actions. -->
+</body></html>

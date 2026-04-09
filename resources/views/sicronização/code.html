@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saúde Conecta - Sincronização</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#002204",
+                        "background": "#f7fafc",
+                        "inverse-surface": "#2d3133",
+                        "secondary-container": "#8feefc",
+                        "tertiary-container": "#006519",
+                        "surface": "#f7fafc",
+                        "inverse-on-surface": "#eef1f3",
+                        "primary-fixed": "#cfe4ff",
+                        "on-background": "#181c1e",
+                        "on-tertiary-container": "#82e17f",
+                        "secondary-fixed-dim": "#75d5e2",
+                        "surface-tint": "#15629a",
+                        "surface-container": "#ebeef0",
+                        "on-error-container": "#93000a",
+                        "outline-variant": "#c1c7d1",
+                        "outline": "#717881",
+                        "tertiary-fixed-dim": "#7ddc7a",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed-variant": "#005313",
+                        "tertiary": "#004a10",
+                        "tertiary-fixed": "#98f994",
+                        "on-surface-variant": "#414750",
+                        "on-primary-fixed": "#001d34",
+                        "primary-fixed-dim": "#9acbff",
+                        "on-secondary-fixed-variant": "#004f56",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f1f4f6",
+                        "surface-bright": "#f7fafc",
+                        "surface-dim": "#d7dadc",
+                        "secondary": "#006972",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#a6d0ff",
+                        "secondary-fixed": "#92f1fe",
+                        "inverse-primary": "#9acbff",
+                        "primary": "#00426d",
+                        "error": "#ba1a1a",
+                        "primary-container": "#005a92",
+                        "on-surface": "#181c1e",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#004a79",
+                        "on-secondary-fixed": "#001f23",
+                        "on-secondary-container": "#006d77"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 border-r border-slate-100 bg-slate-50 flex flex-col p-4 gap-2">
+<div class="mb-8 px-2">
+<h1 class="text-lg font-extrabold text-blue-800 tracking-tight">Saúde Conecta</h1>
+<p class="text-xs font-manrope font-semibold tracking-wide text-slate-500 uppercase">Portal do Agente</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="clinical_notes">clinical_notes</span> Visitas
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span> Famílias
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span> Histórico
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="notification_important">notification_important</span> Alertas
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span> Relatórios
+            </a>
+<!-- Active State: Sincronização -->
+<a class="flex items-center gap-3 px-3 py-2 bg-white text-blue-700 shadow-sm rounded-lg text-sm font-semibold tracking-wide translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="sync" style="font-variation-settings: 'FILL' 1;">sync</span> Sincronização
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Configurações
+            </a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200 space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="add">add</span>
+                Nova Visita
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 hover:bg-slate-100 rounded-lg text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span> Ajuda
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-xl shadow-sm flex justify-between items-center px-8 py-3 border-b border-slate-100">
+<div class="flex items-center gap-4">
+<h2 class="text-xl font-bold tracking-tight text-blue-900">Sincronização de Dados</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-secondary-container/30 text-on-secondary-container rounded-full text-xs font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                    Dispositivo Online
+                </div>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 hover:bg-slate-50 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-xs border-2 border-white shadow-sm overflow-hidden">
+<img alt="Agent Profile Picture" class="w-full h-full object-cover" data-alt="close up professional headshot of a healthcare worker in uniform with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdahwho8zoZaAKGqC0WtsBnWzX-c5_gQwbYnB_hoBPuY6r0aj99qOuoBF8RV3rSqxSx9pJmQ92t8rCr7DSNA9hskCfhZrFzAEzzXcwkE12JnXyfFEW1jzRBtbfHoK6gIU2M6_ItGNRA6fyZIA9c29hNU57_WP2MGtOJJN96l--nulasY92e08j8NyFggHU9BuyVQ1e2M1syDFk5A4uuPtkcIlI6AAlRIzeGmQ0XC-JNPCD5xcccv7eo5wVB3V1Hqccz8wfYPmUFA"/>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-7xl mx-auto space-y-8">
+<!-- Hero Status Section: Bento Grid Item -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl flex items-center justify-between group">
+<div class="space-y-4">
+<div class="space-y-1">
+<span class="text-xs font-bold uppercase tracking-widest text-primary/60">Status de Conexão</span>
+<h3 class="text-3xl font-headline font-extrabold text-primary">Pronto para Sincronizar</h3>
+</div>
+<p class="text-on-surface-variant max-w-md">Seu dispositivo local possui registros pendentes que ainda não foram enviados para o servidor central da Secretaria de Saúde.</p>
+<div class="flex items-center gap-6 pt-4">
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-on-surface">12</span>
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-tighter">Registros Offline</span>
+</div>
+<div class="w-px h-10 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-2xl font-bold text-on-surface">320kb</span>
+<span class="text-xs font-medium text-on-surface-variant uppercase tracking-tighter">Tamanho Total</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<button class="h-32 w-32 rounded-full bg-gradient-to-br from-primary to-primary-container text-white shadow-xl hover:shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex flex-col items-center justify-center gap-2 group">
+<span class="material-symbols-outlined text-4xl" data-icon="sync">sync</span>
+<span class="text-xs font-bold uppercase">Sincronizar</span>
+</button>
+<!-- Orbital decoration -->
+<div class="absolute -inset-4 border border-dashed border-primary/20 rounded-full animate-[spin_10s_linear_infinite]"></div>
+</div>
+</div>
+<!-- Connectivity Card -->
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6 flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<div class="p-3 bg-white rounded-xl shadow-sm text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="wifi">wifi</span>
+</div>
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">Estável</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline font-bold text-on-surface">Rede Unidade Central</h4>
+<p class="text-sm text-on-surface-variant">Latência: 24ms</p>
+</div>
+<div class="w-full bg-white h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<!-- Pending Data List (Authority: No-Line Architecture) -->
+<div class="lg:col-span-3 space-y-6">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-lg font-headline font-bold text-on-surface">Dados Pendentes para Envio</h3>
+<button class="text-primary text-sm font-semibold hover:underline">Selecionar tudo</button>
+</div>
+<div class="space-y-3">
+<!-- Pending Item Card -->
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Cadastro: Maria Silva dos Santos</h4>
+<p class="text-xs text-on-surface-variant">Visita domiciliar • Há 2 horas</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-tertiary-container/10 text-on-tertiary-container text-[10px] font-bold rounded-full uppercase tracking-wide">Alta Prioridade</span>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-error transition-colors" data-icon="delete">delete</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Acompanhamento: Hipertensão</h4>
+<p class="text-xs text-on-surface-variant">Paciente: João Ferreira • Há 4 horas</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-wide">Rotina</span>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-error transition-colors" data-icon="delete">delete</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="vaccines">vaccines</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Campanha Vacinação: Influenza</h4>
+<p class="text-xs text-on-surface-variant">Lote: 45A-2023 • Há 6 horas</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-tertiary-container/10 text-on-tertiary-container text-[10px] font-bold rounded-full uppercase tracking-wide">Alta Prioridade</span>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-error transition-colors" data-icon="delete">delete</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl flex items-center justify-between group hover:bg-surface-container-high/50 transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">Atualização Cadastral: Família 102</h4>
+<p class="text-xs text-on-surface-variant">Endereço: Rua das Palmeiras • Ontem</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant text-[10px] font-bold rounded-full uppercase tracking-wide">Rotina</span>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer hover:text-error transition-colors" data-icon="delete">delete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sync History (Authority: Editorial Authority) -->
+<div class="lg:col-span-2 space-y-6">
+<div class="px-2">
+<h3 class="text-lg font-headline font-bold text-on-surface">Histórico Recente</h3>
+</div>
+<div class="bg-surface-container-low rounded-2xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-[0.1em]">Últimos 7 dias</span>
+<span class="text-[10px] font-bold text-secondary uppercase">100% Sucesso</span>
+</div>
+<!-- Simple Sparkline Representation -->
+<div class="flex items-end gap-1.5 h-16">
+<div class="w-full bg-secondary/20 rounded-t h-[60%]"></div>
+<div class="w-full bg-secondary/40 rounded-t h-[45%]"></div>
+<div class="w-full bg-secondary/30 rounded-t h-[80%]"></div>
+<div class="w-full bg-secondary/50 rounded-t h-[30%]"></div>
+<div class="w-full bg-secondary/60 rounded-t h-[90%]"></div>
+<div class="w-full bg-primary h-[100%] rounded-t"></div>
+<div class="w-full bg-secondary/40 rounded-t h-[50%]"></div>
+</div>
+</div>
+<div class="p-6 space-y-6">
+<!-- Timeline Entry -->
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-[-24px] before:w-px before:bg-outline-variant/20">
+<div class="absolute left-[-4px] top-1.5 w-2.5 h-2.5 rounded-full bg-secondary border-2 border-white"></div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-sm font-bold text-on-surface">Sincronização Automática</span>
+<span class="text-xs text-on-surface-variant">Hoje, 08:12</span>
+</div>
+<p class="text-xs text-on-surface-variant">42 registros enviados com sucesso.</p>
+</div>
+</div>
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-[-24px] before:w-px before:bg-outline-variant/20">
+<div class="absolute left-[-4px] top-1.5 w-2.5 h-2.5 rounded-full bg-secondary border-2 border-white"></div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-sm font-bold text-on-surface">Sincronização Manual</span>
+<span class="text-xs text-on-surface-variant">Ontem, 17:45</span>
+</div>
+<p class="text-xs text-on-surface-variant">156 registros enviados com sucesso.</p>
+</div>
+</div>
+<div class="relative pl-6">
+<div class="absolute left-[-4px] top-1.5 w-2.5 h-2.5 rounded-full bg-secondary border-2 border-white"></div>
+<div class="space-y-1">
+<div class="flex justify-between">
+<span class="text-sm font-bold text-on-surface">Sincronização Automática</span>
+<span class="text-xs text-on-surface-variant">Ontem, 08:00</span>
+</div>
+<p class="text-xs text-on-surface-variant">12 registros enviados com sucesso.</p>
+</div>
+</div>
+</div>
+<button class="w-full py-4 text-sm font-bold text-primary hover:bg-primary-container/5 transition-colors uppercase tracking-widest">
+                            Ver Relatório Completo
+                        </button>
+</div>
+</div>
+</div>
+<!-- Footer Meta Info -->
+<div class="pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4 text-xs text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="storage">storage</span> Espaço Local: 1.2GB livre</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="update">update</span> Versão do Banco: 2.4.0-Stable</span>
+</div>
+<p class="text-xs text-on-surface-variant italic">Próxima sincronização automática agendada para: 12:00 (em 3 horas)</p>
+</div>
+</div>
+</main>
+</body></html>

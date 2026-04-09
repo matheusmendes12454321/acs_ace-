@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#98f994",
+                        "secondary-container": "#8feefc",
+                        "inverse-surface": "#2d3133",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#006519",
+                        "on-tertiary-fixed": "#002204",
+                        "on-surface-variant": "#414750",
+                        "primary-fixed-dim": "#9acbff",
+                        "primary-container": "#005a92",
+                        "tertiary": "#004a10",
+                        "surface-container-high": "#e5e9eb",
+                        "primary": "#00426d",
+                        "outline-variant": "#c1c7d1",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-container": "#006d77",
+                        "on-primary-fixed": "#001d34",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#cfe4ff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#004a79",
+                        "surface-bright": "#f7fafc",
+                        "inverse-on-surface": "#eef1f3",
+                        "on-secondary-fixed-variant": "#004f56",
+                        "surface-container": "#ebeef0",
+                        "on-primary": "#ffffff",
+                        "background": "#f7fafc",
+                        "on-surface": "#181c1e",
+                        "inverse-primary": "#9acbff",
+                        "secondary": "#006972",
+                        "on-tertiary-fixed-variant": "#005313",
+                        "surface-container-low": "#f1f4f6",
+                        "surface-tint": "#15629a",
+                        "secondary-fixed": "#92f1fe",
+                        "on-error-container": "#93000a",
+                        "on-background": "#181c1e",
+                        "surface": "#f7fafc",
+                        "on-tertiary-container": "#82e17f",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#75d5e2",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#7ddc7a",
+                        "on-secondary-fixed": "#001f23"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #00426d 0%, #005a92 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 h-screen w-64 border-r-0 flex flex-col bg-slate-50 dark:bg-slate-900">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-sky-900 dark:text-sky-100">Saúde Conecta</h1>
+<p class="text-[10px] font-bold uppercase tracking-widest text-sky-700/60">Portal Adm</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Painel Geral
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Equipes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="patient_list">patient_list</span>
+                Pacientes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-sky-700 dark:text-sky-400 shadow-sm rounded-lg font-manrope font-semibold text-sm transition-transform active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+                Agendamentos
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Relatórios
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors font-manrope font-semibold text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Configurações
+            </a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<button class="w-full py-3 bg-gradient-primary text-white rounded-xl font-bold text-sm shadow-lg shadow-sky-900/10 active:scale-95 transition-transform">
+                Novo Relatório
+            </button>
+<div class="mt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-sky-600 text-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                    Suporte
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:text-error text-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    Sair
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 min-h-screen bg-surface">
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center h-16 w-full pr-8 pl-8 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-30 shadow-sm shadow-slate-200/50 dark:shadow-none">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20" placeholder="Pesquisar por paciente, ID ou alerta..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="relative p-2 text-slate-500 hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<button class="p-2 text-slate-500 hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-slate-200">
+<div class="text-right">
+<p class="text-sm font-bold text-sky-900">Dr. Ricardo Silva</p>
+<p class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Superintendente</p>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-container">
+<img alt="Avatar do Administrador" class="w-full h-full object-cover" data-alt="professional portrait of a senior male doctor with grey hair and glasses in a clinical setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYPdiDtgFbMfoOIy1-E2Et3tjZ4APfZSDRR8XMexuLJaWuNIck33Bs0eV4ouxTKNl3qu8dy2FI9YStR7EbJVCvA8Sv_CwZVocL8RDQxuINDm_DBow3Vyg3Cn0sNweCmTD4ZEIsRCeQsuh_Sl8aHErviEucinkPnn8NXDFTVX67T3i2Q62c-pO-sk73XarZoBoxRDIXEHufZcTJ84FFa25N8ArNRRmSQUtPEIQoswU2OVBUhfXnwWK1uAocRp4pUJ9w16-j5bhYmw"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8">
+<!-- Page Header -->
+<div class="flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Central de Alertas Graves</h2>
+<p class="text-on-surface-variant font-medium mt-1">Monitoramento em tempo real de ocorrências críticas em toda a rede.</p>
+</div>
+<div class="flex items-center bg-error-container/30 px-4 py-2 rounded-full border border-error/10">
+<span class="material-symbols-outlined text-error mr-2 animate-pulse" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-error font-bold text-sm">12 ALERTAS CRÍTICOS ATIVOS</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Alert List (Left Column) -->
+<div class="col-span-12 lg:col-span-7 space-y-4">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-sky-900">Fila de Prioridade</h3>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-slate-600">TODOS</span>
+<span class="px-3 py-1 bg-error rounded-full text-[10px] font-bold text-white">URGENTES (8)</span>
+</div>
+</div>
+<!-- Alert Cards -->
+<!-- Critical Alert Card 1 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl transition-all hover:translate-x-1 border-l-4 border-error shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">ecg_heart</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-on-surface">Taquicardia Ventricular Sustentada</h4>
+<span class="px-2 py-0.5 bg-error text-white text-[10px] font-black rounded uppercase">Prioridade Máxima</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-0.5">Paciente: <strong>Clarice Lispector de Souza</strong> • Leito 402-B</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">location_on</span> Setor de Cardiologia
+                                        </div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">schedule</span> Há 2 minutos
+                                        </div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-4 py-2 bg-gradient-primary text-white rounded-lg text-xs font-bold hover:brightness-110 active:scale-95 transition-all">Despachar Enfermeiro</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-high active:scale-95 transition-all">Contatar Agente</button>
+</div>
+</div>
+</div>
+<!-- Critical Alert Card 2 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl transition-all hover:translate-x-1 border-l-4 border-error shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">respiratory_rate</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-on-surface">Insuficiência Respiratória Aguda</h4>
+<span class="px-2 py-0.5 bg-error text-white text-[10px] font-black rounded uppercase">Prioridade Máxima</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-0.5">Paciente: <strong>João Guimarães Rosa</strong> • Ala Norte, Bloco C</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">location_on</span> Unidade de Terapia Intensiva
+                                        </div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">schedule</span> Há 5 minutos
+                                        </div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-4 py-2 bg-gradient-primary text-white rounded-lg text-xs font-bold hover:brightness-110 active:scale-95 transition-all">Despachar Enfermeiro</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-high active:scale-95 transition-all">Contatar Agente</button>
+</div>
+</div>
+</div>
+<!-- Warning Alert Card 3 -->
+<div class="group bg-surface-container-lowest p-5 rounded-xl transition-all hover:translate-x-1 border-l-4 border-primary shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-on-surface">Bateria Crítica em Monitor Portátil</h4>
+<span class="px-2 py-0.5 bg-primary text-white text-[10px] font-black rounded uppercase">Manutenção</span>
+</div>
+<p class="text-sm text-on-surface-variant mt-0.5">Equipamento: <strong>Philips MX40 (SN: 992-K)</strong> • Sala 12</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">location_on</span> Ambulatório Geral
+                                        </div>
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-slate-500 uppercase tracking-tight">
+<span class="material-symbols-outlined text-sm">schedule</span> Há 12 minutos
+                                        </div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-high active:scale-95 transition-all">Notificar TI</button>
+<button class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-lg text-xs font-bold hover:bg-surface-container-high active:scale-95 transition-all">Ver Detalhes</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Map and Stats (Right Column) -->
+<div class="col-span-12 lg:col-span-5 space-y-6">
+<!-- Map Module -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/10">
+<div class="p-4 flex items-center justify-between bg-surface-container-low">
+<h3 class="text-sm font-extrabold text-sky-900 uppercase tracking-wider">Localização em Tempo Real</h3>
+<span class="flex items-center gap-1 text-[10px] font-bold text-secondary">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span> AO VIVO
+                            </span>
+</div>
+<div class="relative h-[350px] bg-slate-200">
+<img alt="Abstract map of medical facility" class="w-full h-full object-cover grayscale opacity-80" data-alt="simplified top-down architectural map of a large modern hospital facility with clean lines and soft blue highlighting" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhBf3JyeGwPGHN1YI3H7iLOhW7jNzQmxG2NgdM9tD0m9FxqAuzkmBzoV80e16aXLkBe8jdh67mh-HvjjzdV5DCVpRhlLv1SNknDgAwU74LKoqI6njGSxmk0JZ02bqytNQUcsp6mDvMeBnUPhHYg2l4ztIPJuzR0PJcI0paWpgp-74VahKihDaGy2rutT3zGDkfOu9ERou6qHuDpLvjCVSLrxJjijaiYoFRI_qOv5M6plVm9U6mxZh70RbHPkCGwa8Hs22bg5ECvA"/>
+<!-- Map Markers -->
+<div class="absolute top-[30%] left-[45%] group">
+<div class="w-8 h-8 bg-error text-white rounded-full flex items-center justify-center shadow-lg animate-bounce border-2 border-white cursor-pointer">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+<div class="hidden group-hover:block absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-on-surface text-white p-2 rounded text-[10px] whitespace-nowrap z-50">
+                                    Clarice Lispector (Leito 402-B)
+                                </div>
+</div>
+<div class="absolute top-[60%] left-[20%] group">
+<div class="w-6 h-6 bg-error text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white cursor-pointer opacity-70">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">emergency</span>
+</div>
+</div>
+<div class="absolute top-[15%] left-[70%] group">
+<div class="w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shadow-lg border-2 border-white cursor-pointer opacity-70">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">medical_services</span>
+</div>
+</div>
+</div>
+<div class="p-4 grid grid-cols-2 gap-4">
+<div class="p-3 bg-surface-container-low rounded-xl">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Enfermeiros Ativos</p>
+<p class="text-xl font-extrabold text-sky-900 mt-1">42</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl">
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Tempo Méd. Resposta</p>
+<p class="text-xl font-extrabold text-sky-900 mt-1">1:45m</p>
+</div>
+</div>
+</div>
+<!-- Quick Analytics Chip-Grid -->
+<div class="bg-gradient-primary rounded-2xl p-6 text-white shadow-xl">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-lg">Resumo Plantão</h3>
+<span class="text-xs bg-white/20 px-2 py-1 rounded">24 de Out</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium opacity-80">Total de Alertas</span>
+<span class="text-lg font-bold">154</span>
+</div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-fixed h-full w-[85%]"></div>
+</div>
+<div class="grid grid-cols-3 gap-2 pt-2">
+<div class="text-center">
+<p class="text-[10px] uppercase opacity-70 font-bold">Críticos</p>
+<p class="text-lg font-black text-error-container">12</p>
+</div>
+<div class="text-center border-x border-white/10">
+<p class="text-[10px] uppercase opacity-70 font-bold">Atendidos</p>
+<p class="text-lg font-black">138</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] uppercase opacity-70 font-bold">Falso Pos.</p>
+<p class="text-lg font-black opacity-40">4</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button Suppression - As per instructions for Details/Focused screens, but keeping for Home dashboard as specified -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="flex items-center gap-2 px-6 py-4 bg-error text-white rounded-full font-bold shadow-2xl hover:scale-105 transition-transform active:scale-95 group">
+<span class="material-symbols-outlined animate-pulse" style="font-variation-settings: 'FILL' 1;">emergency_home</span>
+            CÓDIGO AZUL GLOBAL
+        </button>
+</div>
+</body></html>

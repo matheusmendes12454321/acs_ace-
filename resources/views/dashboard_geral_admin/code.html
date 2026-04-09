@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Saúde Conecta Adm - Dashboard Geral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#98f994",
+                    "secondary-container": "#8feefc",
+                    "inverse-surface": "#2d3133",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#006519",
+                    "on-tertiary-fixed": "#002204",
+                    "on-surface-variant": "#414750",
+                    "primary-fixed-dim": "#9acbff",
+                    "primary-container": "#005a92",
+                    "tertiary": "#004a10",
+                    "surface-container-high": "#e5e9eb",
+                    "primary": "#00426d",
+                    "outline-variant": "#c1c7d1",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary-container": "#006d77",
+                    "on-primary-fixed": "#001d34",
+                    "error": "#ba1a1a",
+                    "primary-fixed": "#cfe4ff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#004a79",
+                    "surface-bright": "#f7fafc",
+                    "inverse-on-surface": "#eef1f3",
+                    "on-secondary-fixed-variant": "#004f56",
+                    "surface-container": "#ebeef0",
+                    "on-primary": "#ffffff",
+                    "background": "#f7fafc",
+                    "on-surface": "#181c1e",
+                    "inverse-primary": "#9acbff",
+                    "secondary": "#006972",
+                    "on-tertiary-fixed-variant": "#005313",
+                    "surface-container-low": "#f1f4f6",
+                    "surface-tint": "#15629a",
+                    "secondary-fixed": "#92f1fe",
+                    "on-error-container": "#93000a",
+                    "on-background": "#181c1e",
+                    "surface": "#f7fafc",
+                    "on-tertiary-container": "#82e17f",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#75d5e2",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#7ddc7a",
+                    "on-secondary-fixed": "#001f23"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafc; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- SideNavBar (Shell) -->
+<aside class="fixed left-0 top-0 h-full z-40 bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r-0 flex flex-col font-manrope font-semibold text-sm">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-sky-900 dark:text-sky-100">Saúde Conecta</h1>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Portal Adm</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-800 text-sky-700 dark:text-sky-400 shadow-sm rounded-lg Active: scale-95 duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Painel Geral</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Equipes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">patient_list</span>
+<span>Pacientes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Agendamentos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-sky-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-slate-200/50">
+<button class="w-full bg-primary-container text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 mb-4 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">add_chart</span>
+<span>Novo Relatório</span>
+</button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span>Suporte</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Sair</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shell) -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-30 shadow-sm shadow-slate-200/50 font-manrope text-sm">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96 group">
+<span class="material-symbols-outlined text-slate-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-on-surface w-full placeholder-slate-400" placeholder="Buscar indicadores ou equipes..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-500">
+<button class="relative hover:text-sky-700 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<button class="hover:text-sky-700 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="font-bold text-sky-900 leading-tight">Saúde Conecta Adm</p>
+<p class="text-xs text-slate-500">Gestor Municipal</p>
+</div>
+<img alt="Avatar do Administrador" class="w-10 h-10 rounded-full border-2 border-primary-fixed" data-alt="Close up professional headshot of a smiling male administrator in business casual attire with soft background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtGFd1KQkdrsXL--ossZJEQgo1w8cbsm7TrZbBm_tA3-9Uzjbyh8lkfHLTSrkVJMSLuU296g_dhGubq3abju0icTqVfOABKqlHt3Er-GB-EY5DG2BmZfioieyBYerrYKDlp8kiqSgbAkdkja16caiJtySnaRELhvpHOutrbhH7JVeEegfXZI1uyE135zWeuucbhczI7ImyS15FfmFT6S-uvv4xqVRPWeGAeTAmWQAwN2y5d6Yd9Vgn7SgHJdJKfwqhhOABhW5oKw"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-72 pr-8 pt-24 pb-12 min-h-screen">
+<!-- Welcome Header -->
+<div class="mb-8 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-2">Visão Macro de Saúde</h2>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">location_on</span>
+                    Distrito Sanitário Norte • Atualizado agora
+                </p>
+</div>
+<div class="flex gap-3">
+<div class="flex bg-surface-container-high rounded-xl p-1">
+<button class="px-4 py-2 bg-white shadow-sm rounded-lg font-bold text-primary text-sm">Mensal</button>
+<button class="px-4 py-2 text-slate-600 font-medium text-sm">Semanal</button>
+<button class="px-4 py-2 text-slate-600 font-medium text-sm">Hoje</button>
+</div>
+</div>
+</div>
+<!-- KPI Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-fixed transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-fixed text-primary rounded-xl">
+<span class="material-symbols-outlined">home_health</span>
+</div>
+<span class="text-secondary font-bold text-xs bg-secondary-container px-2 py-1 rounded-full">+12%</span>
+</div>
+<h3 class="text-label text-slate-500 font-medium mb-1">Total de Visitas</h3>
+<p class="text-4xl font-extrabold text-on-surface">1.284</p>
+<div class="mt-4 h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 78%"></div>
+</div>
+<p class="text-[10px] mt-2 text-slate-400 font-semibold uppercase tracking-tighter">Meta: 1.600</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-fixed transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-fixed text-secondary rounded-xl">
+<span class="material-symbols-outlined">family_restroom</span>
+</div>
+<span class="text-slate-500 font-bold text-xs bg-surface-container-high px-2 py-1 rounded-full">Estável</span>
+</div>
+<h3 class="text-label text-slate-500 font-medium mb-1">Famílias Cobertas</h3>
+<p class="text-4xl font-extrabold text-on-surface">4.520</p>
+<div class="mt-4 h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 92%"></div>
+</div>
+<p class="text-[10px] mt-2 text-slate-400 font-semibold uppercase tracking-tighter">Meta: 4.800</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-transparent hover:border-primary-fixed transition-all duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-error-container text-error rounded-xl">
+<span class="material-symbols-outlined">emergency_home</span>
+</div>
+<span class="text-error font-bold text-xs bg-error-container/50 px-2 py-1 rounded-full">+4%</span>
+</div>
+<h3 class="text-label text-slate-500 font-medium mb-1">Alertas Ativos</h3>
+<p class="text-4xl font-extrabold text-on-surface">24</p>
+<div class="mt-4 h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 24%"></div>
+</div>
+<p class="text-[10px] mt-2 text-slate-400 font-semibold uppercase tracking-tighter">Nível: Moderado</p>
+</div>
+<div class="bg-primary-container p-6 rounded-xl text-white relative overflow-hidden group">
+<div class="relative z-10">
+<div class="p-3 bg-white/20 backdrop-blur-md rounded-xl w-fit mb-4">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<h3 class="text-label text-white/70 font-medium mb-1">Produtividade Média</h3>
+<p class="text-4xl font-extrabold">94%</p>
+<p class="mt-6 text-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified_user</span>
+                        Acima da média municipal
+                    </p>
+</div>
+<!-- Abstract Texture -->
+<div class="absolute -right-8 -bottom-8 opacity-10 scale-150 rotate-12 transition-transform group-hover:scale-175">
+<span class="material-symbols-outlined text-[120px]">analytics</span>
+</div>
+</div>
+</div>
+<!-- Middle Section: Trends & Alerts -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Trends Chart Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold text-on-surface">Tendência de Atendimentos</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-medium text-slate-500">Realizado</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-outline-variant"></span>
+<span class="text-xs font-medium text-slate-500">Projeção</span>
+</div>
+</div>
+</div>
+<div class="h-64 flex items-end gap-6 px-4">
+<!-- Simple Mock Chart using DIVs -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-low rounded-t-lg h-24 group-hover:bg-primary-fixed transition-colors"></div>
+<span class="text-xs font-bold text-slate-400">Seg</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-low rounded-t-lg h-32 group-hover:bg-primary-fixed transition-colors"></div>
+<span class="text-xs font-bold text-slate-400">Ter</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-low rounded-t-lg h-48 group-hover:bg-primary-fixed transition-colors"></div>
+<span class="text-xs font-bold text-slate-400">Qua</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-container rounded-t-lg h-56"></div>
+<span class="text-xs font-bold text-primary">Qui</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-low rounded-t-lg h-40 group-hover:bg-primary-fixed transition-colors"></div>
+<span class="text-xs font-bold text-slate-400">Sex</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group opacity-50">
+<div class="w-full bg-outline-variant rounded-t-lg h-28 border-t-2 border-dashed border-primary"></div>
+<span class="text-xs font-bold text-slate-400">Sáb</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-3 gap-4 pt-6 border-t border-surface-container">
+<div class="text-center">
+<p class="text-xs font-bold text-slate-400 uppercase mb-1">Média Diária</p>
+<p class="text-lg font-extrabold text-on-surface">42 visitas</p>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-slate-400 uppercase mb-1">Pico do Período</p>
+<p class="text-lg font-extrabold text-on-surface">Quarta-feira</p>
+</div>
+<div class="text-center">
+<p class="text-xs font-bold text-slate-400 uppercase mb-1">Conversão ACS</p>
+<p class="text-lg font-extrabold text-secondary">88.4%</p>
+</div>
+</div>
+</div>
+<!-- Alerts Resumo -->
+<div class="bg-surface-container-lowest rounded-xl p-8 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-bold text-on-surface">Alertas Críticos</h3>
+<button class="text-primary text-xs font-bold hover:underline">Ver todos</button>
+</div>
+<div class="space-y-4 flex-1">
+<div class="p-4 bg-error-container/30 rounded-xl border-l-4 border-error">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-error uppercase">Surtos Ativos</span>
+<span class="text-[10px] text-slate-500">Há 2h</span>
+</div>
+<p class="text-sm font-bold text-on-surface leading-snug">Possível foco de Dengue em 03 residências</p>
+<p class="text-xs text-on-surface-variant mt-1">Setor Norte, Equipe Beta</p>
+</div>
+<div class="p-4 bg-secondary-container/30 rounded-xl border-l-4 border-secondary">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-secondary uppercase">Gestante em Risco</span>
+<span class="text-[10px] text-slate-500">Há 5h</span>
+</div>
+<p class="text-sm font-bold text-on-surface leading-snug">Maria Santos: Pré-natal atrasado + Hipertensão</p>
+<p class="text-xs text-on-surface-variant mt-1">Visita prioritária recomendada</p>
+</div>
+<div class="p-4 bg-primary-fixed/30 rounded-xl border-l-4 border-primary">
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-bold text-primary uppercase">Meta de Vacinação</span>
+<span class="text-[10px] text-slate-500">Ontem</span>
+</div>
+<p class="text-sm font-bold text-on-surface leading-snug">Campanha de Gripe: Setor Sul abaixo de 50%</p>
+<p class="text-xs text-on-surface-variant mt-1">Realocar agentes para o fim de semana</p>
+</div>
+</div>
+<button class="mt-6 w-full py-3 rounded-xl border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all duration-200">
+                    Gerar Relatório de Intervenção
+                </button>
+</div>
+</div>
+<!-- Footer Stats: Team Productivity -->
+<div class="mt-8 bg-surface-container-lowest rounded-xl overflow-hidden">
+<div class="p-6 border-b border-surface-container flex justify-between items-center">
+<h3 class="text-xl font-bold text-on-surface">Liderança de Equipes</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-low px-3 py-1 rounded-full text-xs font-medium text-slate-600">Total: 8 Equipes</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low text-label text-[10px] uppercase tracking-widest text-slate-500">
+<th class="px-8 py-4">Equipe</th>
+<th class="px-8 py-4">Responsável</th>
+<th class="px-8 py-4">Produtividade</th>
+<th class="px-8 py-4">Visitas / Mês</th>
+<th class="px-8 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">A</div>
+<span class="font-bold text-on-surface">Equipe Alfa</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant font-medium">Dr. Ricardo Mendes</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-secondary rounded-full" style="width: 98%"></div>
+</div>
+<span class="text-xs font-extrabold text-secondary">98%</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface font-bold">210</td>
+<td class="px-8 py-5">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold">EXCELENTE</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">B</div>
+<span class="font-bold text-on-surface">Equipe Beta</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant font-medium">Enf. Carla Lima</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-primary-container rounded-full" style="width: 82%"></div>
+</div>
+<span class="text-xs font-extrabold text-primary-container">82%</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface font-bold">185</td>
+<td class="px-8 py-5">
+<span class="bg-primary-fixed text-primary px-3 py-1 rounded-full text-[10px] font-bold">NORMAL</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">G</div>
+<span class="font-bold text-on-surface">Equipe Gamma</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface-variant font-medium">Dr. Paulo Vieira</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-surface-container-high rounded-full overflow-hidden max-w-[100px]">
+<div class="h-full bg-error rounded-full" style="width: 55%"></div>
+</div>
+<span class="text-xs font-extrabold text-error">55%</span>
+</div>
+</td>
+<td class="px-8 py-5 text-on-surface font-bold">112</td>
+<td class="px-8 py-5">
+<span class="bg-error-container text-error px-3 py-1 rounded-full text-[10px] font-bold">ATENÇÃO</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body></html>
