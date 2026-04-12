@@ -31,7 +31,6 @@
             border-radius: 32px;
             padding: 40px 32px;
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
-            backdrop-filter: blur(10px);
         }
         
         .logo-area {
@@ -50,30 +49,11 @@
             margin: 0 auto 20px;
         }
         
-        .logo-icon i {
-            font-size: 32px;
-            color: white;
-        }
+        .logo-icon i { font-size: 32px; color: white; }
+        .title { font-size: 28px; font-weight: 700; color: #00426d; margin-bottom: 8px; }
+        .subtitle { font-size: 14px; color: #5a6e7a; margin-bottom: 32px; text-align: center; }
         
-        .title {
-            font-size: 28px;
-            font-weight: 700;
-            color: #00426d;
-            margin-bottom: 8px;
-        }
-        
-        .subtitle {
-            font-size: 14px;
-            color: #5a6e7a;
-            margin-bottom: 32px;
-        }
-        
-        .form-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 6px;
-        }
+        .form-label { font-size: 13px; font-weight: 600; color: #2c3e50; margin-bottom: 6px; }
         
         .form-control, .form-select {
             border-radius: 14px;
@@ -81,7 +61,6 @@
             border: 1.5px solid #e2e8f0;
             background: #ffffff;
             font-size: 14px;
-            transition: all 0.2s;
         }
         
         .form-control:focus, .form-select:focus {
@@ -109,21 +88,6 @@
             color: white;
         }
         
-        .checkbox-label {
-            font-size: 13px;
-            color: #5a6e7a;
-        }
-        
-        .help-link {
-            font-size: 13px;
-            color: #00b4d8;
-            text-decoration: none;
-        }
-        
-        .help-link:hover {
-            text-decoration: underline;
-        }
-        
         .biometric-btn {
             background: #f8fafc;
             border: 1.5px solid #e2e8f0;
@@ -141,37 +105,14 @@
             border-color: #00b4d8;
         }
         
-        .footer-text {
-            font-size: 11px;
-            color: #94a3b8;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 11px;
-        }
-        
-        .footer-links a:hover {
-            color: #00b4d8;
-        }
+        .footer-text { font-size: 11px; color: #94a3b8; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+        .footer-links a { color: #94a3b8; text-decoration: none; font-size: 11px; }
+        .footer-links a:hover { color: #00b4d8; }
         
         @media (max-width: 480px) {
-            .login-card {
-                padding: 28px 20px;
-            }
-            .title {
-                font-size: 24px;
-            }
+            .login-card { padding: 28px 20px; }
+            .title { font-size: 24px; }
         }
     </style>
 </head>
@@ -179,31 +120,30 @@
     <div class="login-container">
         <div class="login-card">
             <div class="logo-area">
-                <div class="logo-icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
+                <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
                 <h1 class="title">ACS/ACE Portal</h1>
                 <p class="subtitle">Cuidado que transforma vidas.</p>
             </div>
             
             <p style="font-size: 13px; color: #5a6e7a; margin-bottom: 24px; text-align: center;">
-                Bem-vindo ao Portal do Agente Comunitário de Saúde e Agente de Combate às Endemias. Acesse suas ferramentas de trabalho.
+                Bem-vindo ao Portal do Agente Comunitário de Saúde e Agente de Combate às Endemias.
             </p>
             
-            <form id="loginForm">
+            <form method="POST" action="{{ route('login.submit') }}">
+                @csrf
                 <div class="mb-3">
                     <label class="form-label">E-MAIL INSTITUCIONAL</label>
-                    <input type="email" id="email" class="form-control" placeholder="nome@saude.gov.br" value="admin@saude.gov.br">
+                    <input type="email" name="email" class="form-control" placeholder="nome@saude.gov.br" value="admin@saude.gov.br" required>
                 </div>
                 
                 <div class="mb-3">
                     <label class="form-label">CPF</label>
-                    <input type="text" id="cpf" class="form-control" placeholder="000.000.000-00" value="123.456.789-00">
+                    <input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" value="123.456.789-00">
                 </div>
                 
                 <div class="mb-3">
                     <label class="form-label">TIPO DE USUÁRIO</label>
-                    <select id="role" class="form-select">
+                    <select name="funcao" class="form-select" required>
                         <option value="administrador">Administrador</option>
                         <option value="acs">Agente Comunitário de Saúde (ACS)</option>
                         <option value="ace">Agente de Combate às Endemias (ACE)</option>
@@ -212,25 +152,21 @@
                 
                 <div class="mb-3">
                     <label class="form-label">SENHA</label>
-                    <input type="password" id="password" class="form-control" placeholder="••••••••" value="123456">
+                    <input type="password" name="password" class="form-control" placeholder="••••••••" value="123456" required>
                 </div>
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="remember">
-                        <label class="form-check-label checkbox-label" for="remember">Lembrar de mim neste dispositivo</label>
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                        <label class="form-check-label" style="font-size: 13px; color: #5a6e7a;" for="remember">Lembrar de mim neste dispositivo</label>
                     </div>
-                    <a href="#" class="help-link">Problemas com o acesso?</a>
+                    <a href="#" class="text-decoration-none" style="font-size: 13px; color: #00b4d8;">Problemas com o acesso?</a>
                 </div>
                 
-                <button type="submit" class="btn-login">
-                    Entrar <i class="fas fa-arrow-right ms-2"></i>
-                </button>
+                <button type="submit" class="btn-login">Entrar <i class="fas fa-arrow-right ms-2"></i></button>
             </form>
             
-            <div class="text-center my-4">
-                <span class="footer-text">IDENTIFICAÇÃO INSTITUCIONAL</span>
-            </div>
+            <div class="text-center my-4"><span class="footer-text">IDENTIFICAÇÃO INSTITUCIONAL</span></div>
             
             <button class="biometric-btn" onclick="alert('Leitor biométrico ativado')">
                 <i class="fas fa-fingerprint me-2"></i> Entrar com Biometria
@@ -256,18 +192,5 @@
             </div>
         </div>
     </div>
-    
-    <script>
-        document.getElementById('loginForm').onsubmit = (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const role = document.getElementById('role').value;
-            let nome = email.split('@')[0].split('.')[0];
-            nome = nome.charAt(0).toUpperCase() + nome.slice(1);
-            const user = { nome: nome, email: email, funcao: role };
-            localStorage.setItem('user', JSON.stringify(user));
-            window.location.href = '/app';
-        };
-    </script>
 </body>
 </html>
