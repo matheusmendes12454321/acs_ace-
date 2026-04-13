@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-// Rotas de Login
+// ==================== ROTAS DE LOGIN (SEU CÓDIGO) ====================
 Route::get('/', function () {
     return view('auth.login');
 })->name('login');
@@ -26,7 +26,6 @@ Route::get('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
-// Rotas Protegidas - Verificação manual
 Route::get('/app', function () {
     if (!session('user_nome')) {
         return redirect('/login');
@@ -37,145 +36,47 @@ Route::get('/app', function () {
     return redirect()->route('ace.dashboard');
 });
 
-// Rotas Comuns
+// ==================== ROTAS COMUNS ====================
 Route::get('/perfil', function () {
-    if (!session('user_nome')) return redirect('/login');
     return view('perfil');
 })->name('perfil');
 
 Route::get('/configuracoes', function () {
-    if (!session('user_nome')) return redirect('/login');
     return view('configuracoes');
 })->name('configuracoes');
 
-// Rotas Admin
+// ==================== ROTAS ADMIN ====================
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.dashboard');
-    })->name('dashboard');
-    
-    Route::get('/usuarios', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.usuarios');
-    })->name('usuarios');
-    
-    Route::get('/microareas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.microareas');
-    })->name('microareas');
-    
-    Route::get('/endemias', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.endemias');
-    })->name('endemias');
-    
-    Route::get('/auditoria', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.auditoria');
-    })->name('auditoria');
-    
-    Route::get('/alertas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.alertas');
-    })->name('alertas');
-    
-    Route::get('/relatorios', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.relatorios');
-    })->name('relatorios');
-    
-    Route::get('/sincronizacao', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('admin.sincronizacao');
-    })->name('sincronizacao');
+    Route::get('/dashboard', function () { return view('admin.dashboard'); })->name('dashboard');
+    Route::get('/usuarios', function () { return view('admin.usuarios'); })->name('usuarios');
+    Route::get('/agentes', function () { return view('admin.agentes'); })->name('agentes');
+    Route::get('/agentes-lista', function () { return view('admin.agentes_lista'); })->name('agentes.lista');
+    Route::get('/microareas', function () { return view('admin.microareas'); })->name('microareas');
+    Route::get('/endemias', function () { return view('admin.endemias'); })->name('endemias');
+    Route::get('/auditoria', function () { return view('admin.auditoria'); })->name('auditoria');
+    Route::get('/alertas', function () { return view('admin.alertas'); })->name('alertas');
+    Route::get('/relatorios', function () { return view('admin.relatorios'); })->name('relatorios');
+    Route::get('/sincronizacao', function () { return view('admin.sincronizacao'); })->name('sincronizacao');
 });
 
-// Rotas ACS
+// ==================== ROTAS ACS ====================
 Route::prefix('acs')->name('acs.')->group(function () {
-    Route::get('/dashboard', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.dashboard');
-    })->name('dashboard');
-    
-    Route::get('/familias', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.familias');
-    })->name('familias');
-    
-    Route::get('/visitas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.visitas');
-    })->name('visitas');
-    
-    Route::get('/rotas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.rotas');
-    })->name('rotas');
-    
-    Route::get('/historico', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.historico');
-    })->name('historico');
-    
-    Route::get('/alertas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.alertas');
-    })->name('alertas');
-    
-    Route::get('/relatorios', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.relatorios');
-    })->name('relatorios');
-    
-    Route::get('/sincronizacao', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('acs.sincronizacao');
-    })->name('sincronizacao');
+    Route::get('/dashboard', function () { return view('acs.dashboard'); })->name('dashboard');
+    Route::get('/familias', function () { return view('acs.familias'); })->name('familias');
+    Route::get('/visitas', function () { return view('acs.visitas'); })->name('visitas');
+    Route::get('/rotas', function () { return view('acs.rotas'); })->name('rotas');
+    Route::get('/historico', function () { return view('acs.historico'); })->name('historico');
+    Route::get('/alertas', function () { return view('acs.alertas'); })->name('alertas');
+    Route::get('/relatorios', function () { return view('acs.relatorios'); })->name('relatorios');
+    Route::get('/sincronizacao', function () { return view('acs.sincronizacao'); })->name('sincronizacao');
 });
 
-// Rotas ACE
+// ==================== ROTAS ACE ====================
 Route::prefix('ace')->name('ace.')->group(function () {
-    Route::get('/dashboard', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.dashboard');
-    })->name('dashboard');
-    
-    Route::get('/focos', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.focos');
-    })->name('focos');
-    
-    Route::get('/vistorias', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.vistorias');
-    })->name('vistorias');
-    
-    Route::get('/alertas', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.alertas');
-    })->name('alertas');
-    
-    Route::get('/relatorios', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.relatorios');
-    })->name('relatorios');
-    
-    Route::get('/sincronizacao', function () {
-        if (!session('user_nome')) return redirect('/login');
-        return view('ace.sincronizacao');
-    })->name('sincronizacao');
+    Route::get('/dashboard', function () { return view('ace.dashboard'); })->name('dashboard');
+    Route::get('/focos', function () { return view('ace.focos'); })->name('focos');
+    Route::get('/vistorias', function () { return view('ace.vistorias'); })->name('vistorias');
+    Route::get('/alertas', function () { return view('ace.alertas'); })->name('alertas');
+    Route::get('/relatorios', function () { return view('ace.relatorios'); })->name('relatorios');
+    Route::get('/sincronizacao', function () { return view('ace.sincronizacao'); })->name('sincronizacao');
 });
-
-// Rotas Admin - Agentes
-Route::get('/admin/agentes', function () { return view('admin.agentes'); })->name('admin.agentes');
-Route::get('/admin/agentes/lista', function () { return view('admin.agentes_lista'); })->name('admin.agentes.lista');
-
-// Rotas Admin - Agentes
-Route::get('/admin/agentes', function () { 
-    return view('admin.agentes'); 
-})->name('admin.agentes');
-
-Route::get('/admin/agentes/lista', function () { 
-    return view('admin.agentes_lista'); 
-})->name('admin.agentes.lista');

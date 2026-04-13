@@ -1,34 +1,11 @@
 @extends('layouts.master')
-
 @section('title', 'Lista de Agentes')
-
 @section('content')
 <div class="card-custom">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4 class="fw-bold mb-0"><i class="fas fa-users me-2"></i>Agentes Cadastrados</h4>
-        <button class="btn btn-grad" onclick="window.location.href='{{ route('admin.agentes') }}'">
-            <i class="fas fa-plus me-2"></i>Novo Agente
-        </button>
-    </div>
-    
-    <div class="table-responsive-custom">
-        <table class="table-custom w-100">
-            <thead>
-                <tr><th>Foto</th><th>Nome</th><th>CPF</th><th>Função</th><th>Microárea</th><th>Status</th><th>Ações</th>
-                </thead>
-            <tbody id="agentesList">
-                <tr><td colspan="7" class="text-center py-4">Nenhum agente cadastrado. Clique em "Novo Agente" para começar.</td></tr>
-            </tbody>
-        </table>
-    </div>
+	<div class="d-flex justify-content-between mb-4"><h4>Agentes de Saúde</h4><a href="{{ route('admin.agentes') }}" class="btn btn-grad">+ Novo Agente</a></div>
+	<div class="table-responsive"><table class="table-custom"><thead><tr><th>Nome</th><th>CPF</th><th>Função</th><th>Status</th><th>Ações</th></tr></thead>
+	<tbody><tr><td><strong>Maria Silva</strong></td><td>123.456.789-00</td><td><span class="badge bg-info">ACS</span></td><td><span class="badge bg-success">Ativo</span></td><td><button class="btn btn-sm btn-light" onclick="showAlert('Editar')">✏️</button></td></tr>
+	<tr><td><strong>Carlos Santos</strong></td><td>234.567.890-11</td><td><span class="badge bg-warning">ACE</span></td><td><span class="badge bg-success">Ativo</span></td><td><button class="btn btn-sm btn-light" onclick="showAlert('Editar')">✏️</button></td></tr>
+	</tbody></table></div>
 </div>
-
-<script>
-    // Simulação de dados - depois conecta com o back
-    function carregarAgentes() {
-        // Aqui virá a requisição AJAX para o backend
-        console.log('Carregando agentes...');
-    }
-    carregarAgentes();
-</script>
 @endsection
