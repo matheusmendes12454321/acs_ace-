@@ -2,26 +2,25 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Microarea extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'code', 'boundaries'];
-
-    protected $casts = [
-        'boundaries' => 'array'
+    protected $fillable = [
+        'codigo', 'nome', 'descricao', 'poligono_coordenadas',
+        'populacao_estimada', 'residencias_estimadas', 'cobertura_percentual', 'status'
     ];
 
-    public function families()
-    {
-        return $this->hasMany(Family::class);
-    }
-
-    public function agents()
+    public function agentes()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function familias()
+    {
+        return $this->hasMany(Familia::class);
     }
 }

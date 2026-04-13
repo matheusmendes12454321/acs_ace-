@@ -33,6 +33,7 @@
             font-family: 'Inter', sans-serif;
             background: var(--bg);
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         /* Sidebar */
@@ -93,16 +94,18 @@
             font-size: 1.1rem;
         }
         
-        /* Main Content */
+        /* Main Content - Desktop ocupa tela toda */
         .main-content {
             margin-left: 280px;
             padding: 20px 24px;
             transition: all 0.3s;
             min-height: 100vh;
+            width: calc(100% - 280px);
         }
         
         .main-content.full-width {
             margin-left: 0;
+            width: 100%;
         }
         
         /* Top Bar */
@@ -242,6 +245,7 @@
             .main-content {
                 margin-left: 0;
                 padding: 16px;
+                width: 100%;
             }
         }
         
@@ -276,10 +280,11 @@
         </div>
         <nav class="mt-2">
             @if(session('user_funcao') == 'administrador')
-                <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.*') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="fas fa-chart-pie"></i> Dashboard
                 </a>
                 <a href="{{ route('admin.usuarios') }}" class="nav-link"><i class="fas fa-users"></i> Gestão de Usuários</a>
+                <a href="{{ route('admin.agentes') }}" class="nav-link"><i class="fas fa-user-md"></i> Cadastro de Agentes</a>
                 <a href="{{ route('admin.microareas') }}" class="nav-link"><i class="fas fa-map-marked-alt"></i> Microáreas</a>
                 <a href="{{ route('admin.endemias') }}" class="nav-link"><i class="fas fa-virus"></i> Monitoramento Endemias</a>
                 <a href="{{ route('admin.auditoria') }}" class="nav-link"><i class="fas fa-clipboard-list"></i> Auditoria</a>
@@ -287,9 +292,7 @@
                 <a href="{{ route('admin.relatorios') }}" class="nav-link"><i class="fas fa-file-alt"></i> Relatórios</a>
                 <a href="{{ route('admin.sincronizacao') }}" class="nav-link"><i class="fas fa-cloud-upload-alt"></i> Sincronização</a>
             @elseif(session('user_funcao') == 'acs')
-                <a href="{{ route('acs.dashboard') }}" class="nav-link {{ request()->routeIs('acs.*') ? 'active' : '' }}">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
+                <a href="{{ route('acs.dashboard') }}" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="{{ route('acs.familias') }}" class="nav-link"><i class="fas fa-home"></i> Famílias</a>
                 <a href="{{ route('acs.visitas') }}" class="nav-link"><i class="fas fa-calendar-check"></i> Visitas</a>
                 <a href="{{ route('acs.rotas') }}" class="nav-link"><i class="fas fa-route"></i> Minhas Rotas</a>
@@ -298,9 +301,7 @@
                 <a href="{{ route('acs.relatorios') }}" class="nav-link"><i class="fas fa-chart-line"></i> Relatórios</a>
                 <a href="{{ route('acs.sincronizacao') }}" class="nav-link"><i class="fas fa-sync"></i> Sincronização</a>
             @elseif(session('user_funcao') == 'ace')
-                <a href="{{ route('ace.dashboard') }}" class="nav-link {{ request()->routeIs('ace.*') ? 'active' : '' }}">
-                    <i class="fas fa-tachometer-alt"></i> Dashboard
-                </a>
+                <a href="{{ route('ace.dashboard') }}" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                 <a href="{{ route('ace.focos') }}" class="nav-link"><i class="fas fa-biohazard"></i> Focos de Endemias</a>
                 <a href="{{ route('ace.vistorias') }}" class="nav-link"><i class="fas fa-search"></i> Vistorias</a>
                 <a href="{{ route('ace.alertas') }}" class="nav-link"><i class="fas fa-exclamation-triangle"></i> Alertas</a>
@@ -333,7 +334,7 @@
                 </div>
                 <div class="dropdown">
                     <button class="btn btn-light rounded-pill dropdown-toggle shadow-sm" data-bs-toggle="dropdown" style="font-size: 0.9rem;">
-                        <i class="fas fa-user-circle me-2"></i> {{ session('user_nome') }}
+                        <i class="fas fa-user-circle me-2"></i> {{ session('user_nome', 'Usuário') }}
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3">
                         <li><a class="dropdown-item" href="{{ route('perfil') }}"><i class="fas fa-user me-2"></i>Meu Perfil</a></li>
@@ -414,11 +415,6 @@
         function syncNow() { alert("🔄 Sincronização iniciada!"); }
         function exportReport(format) { alert(`📄 Relatório exportado em formato ${format}`); }
         function downloadReport() { alert("⬇️ Download iniciado!"); }
-        function delegateIntervention() { alert("✅ Intervenção delegada!"); }
-        function contactAgent() { alert("📞 Contatando agente..."); }
-        function callEmergency() { alert("🚑 Chamando SAMU 192..."); }
-        function startVisit() { alert("🚀 Iniciando visita!"); }
-        function registerInspection() { alert("✅ Vistoria registrada!"); }
         
         window.addEventListener('resize', function() {
             if (window.innerWidth > 992) {

@@ -166,3 +166,16 @@ Route::prefix('ace')->name('ace.')->group(function () {
         return view('ace.sincronizacao');
     })->name('sincronizacao');
 });
+
+// Rotas Admin - Agentes
+Route::get('/admin/agentes', function () { return view('admin.agentes'); })->name('admin.agentes');
+Route::get('/admin/agentes/lista', function () { return view('admin.agentes_lista'); })->name('admin.agentes.lista');
+
+// Rotas Admin - Agentes
+Route::get('/admin/agentes', function () { 
+    return view('admin.agentes'); 
+})->name('admin.agentes');
+
+Route::get('/admin/agentes/lista', function () { 
+    return view('admin.agentes_lista'); 
+})->name('admin.agentes.lista');

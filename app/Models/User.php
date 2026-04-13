@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
-        'name', 'cpf', 'password', 'role', 'microarea_id', 'phone', 'active'
+        'name', 'email', 'cpf', 'password', 'funcao', 'microarea_id',
+        'telefone', 'coren', 'ativo', 'ultimo_acesso'
     ];
 
     protected $hidden = [
@@ -20,7 +20,8 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'active' => 'boolean',
+        'ativo' => 'boolean',
+        'ultimo_acesso' => 'datetime',
     ];
 
     public function microarea()
@@ -28,18 +29,28 @@ class User extends Authenticatable
         return $this->belongsTo(Microarea::class);
     }
 
-    public function visits()
+    public function visitas()
     {
-        return $this->hasMany(Visit::class, 'agent_id');
+        return $this->hasMany(Visita::class);
     }
 
-    public function endemicsFocus()
+    public function familias()
     {
-        return $this->hasMany(EndemicsFocus::class, 'agent_id');
+        return $this->hasMany(Familia::class);
     }
 
-    public function alerts()
+    public function focos()
     {
-        return $this->hasMany(Alert::class, 'agent_id');
+        return $this->hasMany(FocoEndemia::class);
+    }
+
+    public function vistorias()
+    {
+        return $this->hasMany(Vistoria::class);
+    }
+
+    public function alertasAtribuidos()
+    {
+        return $this->hasMany(Alerta::class, 'responsavel_id');
     }
 }
