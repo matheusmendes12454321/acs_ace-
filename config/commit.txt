@@ -1,13 +1,37 @@
+#!/bin/bash
+
+# =============================================
+# SCRIPT PARA COMMIT E PUSH RÁPIDO
+# Copie e cole este código no terminal
+# =============================================
+
 cd ~/acs_ace-
 
-# 1. Adicionar todos os arquivos
+# Remover arquivos temporários
+rm -f .my.cnf.* .my.output.* .mysql.* 2>/dev/null
+
+# Adicionar todos os arquivos modificados
 git add .
 
-# 2. Fazer o commit com uma mensagem (NÃO DEIXE VAZIO!)
-git commit -m "Sistema ACS/ACE completo - Versão final com todas as funcionalidades"
+# Verificar se há mudanças para commit
+if git diff --cached --quiet; then
+    echo "⚠️  Nenhuma mudança para commit!"
+else
+    # Criar commit com data e hora
+    git commit -m "Update $(date '+%d/%m/%Y %H:%M:%S')"
+    
+    # Enviar para o repositório
+    git push origin main
+    
+    echo ""
+    echo "✅ Commit realizado com sucesso!"
+    echo "📅 Data: $(date '+%d/%m/%Y %H:%M:%S')"
+fi
 
-# 3. Se ainda der erro, use este comando:
-git commit -m "Sistema ACS/ACE v1.0"
+# Limpar cache do Laravel
+php artisan view:clear 2>/dev/null
+php artisan route:clear 2>/dev/null
+php artisan config:clear 2>/dev/null
 
-# 4. Enviar para o GitHub
-git push origin main
+echo ""
+echo "🚀 Servidor: php artisan serve"
